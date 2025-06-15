@@ -1,0 +1,56 @@
+// Font weight
+$font-weight-s: 400;
+$font-weight-l: 700;
+
+// Font size
+$font-size-xxs: 12px;
+$font-size-xs: 16px;
+$font-size-s: 20px;
+$font-size-m: 24px;
+$font-size-l: 32px;
+$font-size-xl: 40px;
+$font-size-xxl: 62px;
+
+// Letter spacing
+$letter-spacing-m: 0;
+
+// Line height
+$line-height-xs: 18px;
+$line-height-s: 24px;
+$line-height-m: 30px;
+$line-height-l: 40px;
+$line-height-xl: 48px;
+$line-height-xxl: 70px;
+
+// Paragraph spacing
+$paragraph-spacing-xs: 0;
+$paragraph-spacing-s: 4px;
+$paragraph-spacing-m: 8px;
+$paragraph-spacing-l: 12px;
+$paragraph-spacing-xl: 16px;
+$paragraph-spacing-xxl: 24px;
+$paragraph-spacing-3x: 32px;
+$paragraph-spacing-4x: 48px;
+
+// Border
+$border-s: 1px;
+$border-m: 2px;
+
+// Border-radius
+$border-radius-s: 4px;
+$border-radius-m: 6px;
+
+// Helper
+@mixin typography(
+  $font-weight,
+  $font-size,
+  $letter-spacing,
+  $line-height,
+  $paragraph-spacing
+) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  margin-bottom: $paragraph-spacing;
+}

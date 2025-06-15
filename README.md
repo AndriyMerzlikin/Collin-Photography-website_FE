@@ -1,7 +1,7 @@
 # ![Logo](public/logo-peacture.jpg)
 
 > **Platform for viewing and purchasing copyrighted photos.**
-> Allows users to watch & buy copyrighted photos, made by Collin 
+> Allows users to watch & buy copyrighted photos, made by Collin
 
 # Description
 
