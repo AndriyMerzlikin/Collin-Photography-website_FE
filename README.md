@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ![Logo](public/logo-peacture.jpg)
 
-## Getting Started
+> **Platform for viewing and purchasing copyrighted photos.**
+> Allows users to watch & buy copyrighted photos, made by Collin 
 
-First, run the development server:
+# Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Collin Photography** is a platform which allows users to view and choose photos for any taste, exclusively author's production with the ability to purchase them.
+
+---
+
+# 📌 Table of Contents
+
+- [📋 Prerequisites](#-prerequisites)
+- [⚙️ Installation Guide & Configuration](#-installation-guide--configuration)
+- [📂 Directory Structure](#-directory-structure)
+- [🌿 Branch Convention](#-branch-convention)
+
+---
+
+## 📋 Prerequisites
+
+Before installing, make sure you have the following components installed
+:
+
+- [Node.js](https://nodejs.org/en/download) (v22.14.0 LTS)
+- [Git](https://git-scm.com/)
+- [Yarn](https://yarnpkg.com/) or [`npm`](https://www.npmjs.com/)
+- [Next.js](https://nextjs.org/)
+
+---
+
+## ⚙️ Installation Guide & Configuration
+
+### 1️⃣ **Cloning the repository**
+
+```sh
+  git clone https://github.com/AndriyMerzlikin/Collin-Photography-website_FE.git
+  cd collin-photography-website
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ **Setting up Node.js version with NVM**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We use **Node.js v22.14.0 LTS** in this project. To ensure compatibility, we recommend using **NVM (Node Version Manager)**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### 🔍 Check if NVM is installed:
 
-## Learn More
+```sh
+  nvm --version
+```
 
-To learn more about Next.js, take a look at the following resources:
+If the command is not found, install NVM:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Windows:** [Download nvm-windows](https://github.com/coreybutler/nvm-windows/releases)
+- **Mac/Linux:** Follow the installation guide [here](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### ⚡ Use the correct Node.js version:
 
-## Deploy on Vercel
+```sh
+  nvm install 22.14.0
+  nvm use 22.14.0
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3️⃣ **Installing dependencies**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+  npm install   # or yarn install
+```
+
+### 4️⃣ **Starting the local server**
+
+```sh
+  npm run dev   # or yarn dev
+```
+
+📌 **By default, the server will start on:** `http://localhost:3000`
+
+### 5️⃣ **Other scripts to run**
+
+- Build the project for production:
+
+  ```sh
+  npm run build   # or yarn build
+  ```
+
+- Start the production server:
+
+  ```sh
+  npm start   # or yarn start
+  ```
+
+- Lint the project to check for code style issues:
+
+  ```sh
+  npm run lint    # or yarn lint
+  ```
+
+- Format the code automatically using Prettier:
+
+  ```sh
+  npm run prettier:write    # or yarn prettier:write
+  ```
+
+---
+
+## 📂 Directory Structure
+
+```
+fe-sniff/
+├── public/             # Static files (pictures, icons)
+├── src/
+│   ├── app/            # App Router
+│   ├── components/     # UI-components
+│   ├── theme/          # Theme configuration (styles, color palettes, typography)
+├── .env.example        # Environment variables configuration file
+├── .gitignore          # Git files and folders to ignore
+├── eslint.config.mjs   # Configuration file for ESLint
+├── next.config.ts      # Configuration file for Next.js
+├── next-env.d.ts       # TypeScript declaration file for Next.js
+├── package.json        # Dependencies and scripts
+├── package-lock.json   # Locks exact versions of installed dependencies
+├── README.md           # Documentation
+├── tsconfig.json       # Configuration file for TypeScript
+```
+
+---
+
+## 🌿 Branch Convention
+
+📌 We follow **Git Flow**:
+
+- `main` → Main stable branch
+- `feature/branch-name` → Branches for new features
+- `fix/branch-name` → Branches for bug fixes
+
+📌 **Example of branch names:**
+
+- `feature/add-registrer-form`
+- `fix/login-bug`
+
+---
