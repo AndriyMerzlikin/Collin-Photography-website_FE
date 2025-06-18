@@ -1,0 +1,77 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  padding: 0 50px;
+  background-color: $secondary-white;
+  border-bottom: $border-m solid $secondary-black;
+  box-shadow: 0 4px 10px rgba($secondary-black, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+//logo
+
+.logoContainer {
+  display: flex;
+  gap: $paragraph-spacing-s;
+  align-items: center;
+}
+
+.logoTextBox {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  .span1 {
+    letter-spacing: $letter-spacing-xxl;
+    font-size: 1.9rem;
+  }
+
+  .span2 {
+    letter-spacing: $letter-spacing-l;
+
+  }
+}
+
+//nav panel
+
+.navList {
+  display: flex;
+  gap: $paragraph-spacing-xxl;
+}
+
+.navItem {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $secondary-black;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+ .active {
+  &::after {
+    width: 100%;
+  }
+}
