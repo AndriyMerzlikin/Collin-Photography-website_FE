@@ -2,70 +2,70 @@
 
 .h1 {
   @include typography(
-                  $font-weight-l,
-                  $font-size-xxl,
-                  $letter-spacing-m,
-                  $line-height-xxl,
-                  $paragraph-spacing-xs
+    $font-weight-l,
+    $font-size-xxl,
+    $letter-spacing-m,
+    $line-height-xxl,
+    $paragraph-spacing-xs
   );
 }
 
 .h2 {
   @include typography(
-                  $font-weight-l,
-                  $font-size-xl,
-                  $letter-spacing-m,
-                  $line-height-xl,
-                  $paragraph-spacing-xs
+    $font-weight-l,
+    $font-size-xl,
+    $letter-spacing-m,
+    $line-height-xl,
+    $paragraph-spacing-xs
   );
 }
 
 .h3 {
   @include typography(
-                  $font-weight-l,
-                  $font-size-l,
-                  $letter-spacing-m,
-                  $line-height-l,
-                  $paragraph-spacing-xs
+    $font-weight-l,
+    $font-size-l,
+    $letter-spacing-m,
+    $line-height-l,
+    $paragraph-spacing-xs
   );
 }
 
 .h4 {
   @include typography(
-                  $font-weight-l,
-                  $font-size-m,
-                  $letter-spacing-m,
-                  $line-height-m,
-                  $paragraph-spacing-xs
+    $font-weight-l,
+    $font-size-m,
+    $letter-spacing-m,
+    $line-height-m,
+    $paragraph-spacing-xs
   );
 }
 
 .body-large {
   @include typography(
-                  $font-weight-s,
-                  $font-size-s,
-                  $letter-spacing-m,
-                  $line-height-m,
-                  $paragraph-spacing-xs
+    $font-weight-s,
+    $font-size-s,
+    $letter-spacing-m,
+    $line-height-m,
+    $paragraph-spacing-xs
   );
 }
 
 .body-medium {
   @include typography(
-                  $font-weight-s,
-                  $font-size-xs,
-                  $letter-spacing-m,
-                  $line-height-s,
-                  $paragraph-spacing-xs
+    $font-weight-s,
+    $font-size-xs,
+    $letter-spacing-m,
+    $line-height-s,
+    $paragraph-spacing-xs
   );
 }
 
 .body-small {
   @include typography(
-                  $font-weight-s,
-                  $font-size-xxs,
-                  $letter-spacing-m,
-                  $line-height-xs,
-                  $paragraph-spacing-xs
+    $font-weight-s,
+    $font-size-xxs,
+    $letter-spacing-m,
+    $line-height-xs,
+    $paragraph-spacing-xs
   );
 }
