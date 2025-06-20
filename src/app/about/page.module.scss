@@ -1,10 +1,10 @@
 @use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
 
 .aboutSection {
   background-color: $primary-olive;
-  color: var(--color-text);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: $border-radius-m;
   max-width: 800px;
   margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);

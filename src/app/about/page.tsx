@@ -2,7 +2,7 @@ import Typography from '@/components/general/Typography/Typography';
 import React from 'react';
 import styles from './page.module.scss';
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <div className={styles.aboutSection}>
       <Typography variant="h1" className={styles.heading}>
