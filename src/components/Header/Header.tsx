@@ -1,13 +1,14 @@
 'use client'
 
-import React from 'react';
-import styles from './Header.module.scss'
+import React, { useState } from 'react';
+import styles from './Header.module.scss';
 import Typography from "@/components/general/Typography/Typography";
 import Link from "next/link";
 import { RiCameraLensLine } from "react-icons/ri";
-import {ROUTES} from "@/constants/routes";
-import {usePathname} from "next/navigation";
-import clsx from "clsx";
+import { FiMenu } from "react-icons/fi";
+import { ROUTES } from "@/constants/routes";
+import { usePathname } from "next/navigation";
+import clsx from 'clsx';
 
 const NAV_LINKS = [
     { href: ROUTES.HOME, label: "Home" },
@@ -16,10 +17,16 @@ const NAV_LINKS = [
     { href: ROUTES.ABOUT, label: "About" },
     { href: ROUTES.CONTACTS, label: "Contacts" },
     { href: ROUTES.CART, label: "Cart" },
-]
+];
 
 const Header = () => {
     const pathname = usePathname();
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleToggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
 
     return (
         <header className={styles.header}>
@@ -30,19 +37,27 @@ const Header = () => {
                     <span className={styles.span2}>photography</span>
                 </div>
             </Link>
-            <nav className={styles.navList}>
+
+            <nav className={clsx(styles.navList, { [styles.menuActive]: isMenuOpen })}>
                 {NAV_LINKS.map(({ href, label }) => (
                     <Link
                         key={label}
                         href={href}
-                        className={clsx(styles.navItem, {
-                            [styles.active]: pathname === href
-                        })}
+                        onClick={handleToggleMenu}
+                        className={clsx(styles.navItem, { [styles.active]: pathname === href })}
                     >
                         <Typography variant='body-large'>{label}</Typography>
                     </Link>
                 ))}
             </nav>
+
+            {isMenuOpen && <div className={styles.overlay} onClick={handleToggleMenu} />}
+
+            <button
+                onClick={handleToggleMenu}
+            className={styles.menuButton}>
+                <FiMenu size={30}/>
+            </button>
         </header>
     );
 };

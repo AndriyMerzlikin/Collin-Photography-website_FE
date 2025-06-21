@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
 }
 
 //logo
@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: $font-weight-l;
 
   .span1 {
     letter-spacing: $letter-spacing-xxl;
@@ -47,6 +47,24 @@
 .navList {
   display: flex;
   gap: $paragraph-spacing-xxl;
+
+  @media (max-width: 990px) {
+    position: fixed;
+    top: 0;
+    right: -285px;
+    z-index: 11;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    height: 100%;
+    padding: $paragraph-spacing-4x;
+    background-color: $primary-high;
+    border: $border-m solid $secondary-black;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    box-shadow: 0 0 4px 4px rgba($secondary-black, 0.15);
+    transition: right 0.3s ease;
+  }
 }
 
 .navItem {
@@ -75,3 +93,30 @@
     width: 100%;
   }
 }
+
+ .menuActive {
+   right: 0;
+ }
+
+ .menuButton {
+   padding: 0;
+   margin: 0;
+   border: none;
+   background-color: transparent;
+
+   @media (min-width: 991px) {
+     display: none;
+   }
+ }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($secondary-black, 0.15);
+  z-index: 9;
+  backdrop-filter: blur(2px);
+}
+
