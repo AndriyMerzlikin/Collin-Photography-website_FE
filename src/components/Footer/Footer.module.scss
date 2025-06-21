@@ -1,0 +1,69 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $paragraph-spacing-3x;
+  padding: 50px;
+  background-color: $primary-olive;
+  color: $secondary-white;
+}
+
+.infoBox {
+  display: flex;
+  gap: 300px;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.contactBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactTitle {
+  text-transform: uppercase;
+  margin-bottom: $paragraph-spacing-xxl;
+}
+
+.contactText {
+  margin-bottom: $paragraph-spacing-m;
+}
+
+.socialButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgba($secondary-white, 0.1);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba($secondary-white, 0.3);
+  }
+}
+
+.descriptionTitle {
+  text-transform: capitalize;
+  margin-bottom: $paragraph-spacing-xxl;
+}
+
+.descriptionSubtitle {
+  text-transform: capitalize;
+}
+
+.descriptionSpan {
+  font-weight: $font-weight-l;
+}
+
+.signBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}

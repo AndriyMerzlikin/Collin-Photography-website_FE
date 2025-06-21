@@ -20,30 +20,6 @@
   color: $secondary-black;
 }
 
-//logo
-
-.logoContainer {
-  display: flex;
-  gap: $paragraph-spacing-s;
-  align-items: center;
-}
-
-.logoTextBox {
-  display: flex;
-  flex-direction: column;
-  text-transform: uppercase;
-  font-weight: $font-weight-l;
-
-  .span1 {
-    letter-spacing: $letter-spacing-xxl;
-    font-size: 1.9rem;
-  }
-
-  .span2 {
-    letter-spacing: $letter-spacing-l;
-  }
-}
-
 //nav panel
 
 .navList {

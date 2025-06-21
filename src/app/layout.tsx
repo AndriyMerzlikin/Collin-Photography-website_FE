@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Noticia_Text } from 'next/font/google';
 import '@/theme/globals.scss';
 import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 
 const noticia = Noticia_Text({
   variable: '--font-noticia-text',
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={noticia.variable}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
