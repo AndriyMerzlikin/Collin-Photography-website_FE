@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import styles from './Header.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import Link from 'next/link';
-import { RiCameraLensLine } from 'react-icons/ri';
 import { FiMenu } from 'react-icons/fi';
 import { ROUTES } from '@/constants/routes';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import Logo from '@/components/general/Logo/Logo';
 
 const NAV_LINKS = [
   { href: ROUTES.HOME, label: 'Home' },
@@ -37,13 +37,7 @@ const Header = () => {
     <header
       className={clsx(styles.header, { [styles.secondaryHeader]: !isHomePage })}
     >
-      <Link href={ROUTES.HOME} className={styles.logoContainer}>
-        <RiCameraLensLine size={80} />
-        <div className={styles.logoTextBox}>
-          <span className={styles.span1}>collin</span>
-          <span className={styles.span2}>photography</span>
-        </div>
-      </Link>
+      <Logo />
 
       <nav
         className={clsx(styles.navList, { [styles.menuActive]: isMenuOpen })}

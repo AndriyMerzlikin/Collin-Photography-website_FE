@@ -44,16 +44,9 @@ $border-radius-s: 4px;
 $border-radius-m: 6px;
 
 // Helper
-@mixin typography(
-  $font-weight,
-  $font-size,
-  $letter-spacing,
-  $line-height,
-  $paragraph-spacing
-) {
+@mixin typography($font-weight, $font-size, $letter-spacing, $line-height) {
   font-weight: $font-weight;
   font-size: $font-size;
   letter-spacing: $letter-spacing;
   line-height: $line-height;
-  margin-bottom: $paragraph-spacing;
 }
