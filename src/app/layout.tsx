@@ -13,6 +13,9 @@ const noticia = Noticia_Text({
 export const metadata: Metadata = {
   title: 'Collin Photography',
   description: 'Collin`s photography website',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
