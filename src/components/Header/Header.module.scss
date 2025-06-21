@@ -1,0 +1,120 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  padding: 0 50px;
+  background-color: $secondary-white;
+  border-bottom: $border-m solid $secondary-black;
+  box-shadow: 0 4px 10px rgba($secondary-black, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+//logo
+
+.logoContainer {
+  display: flex;
+  gap: $paragraph-spacing-s;
+  align-items: center;
+}
+
+.logoTextBox {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: $font-weight-l;
+
+  .span1 {
+    letter-spacing: $letter-spacing-xxl;
+    font-size: 1.9rem;
+  }
+
+  .span2 {
+    letter-spacing: $letter-spacing-l;
+  }
+}
+
+//nav panel
+
+.navList {
+  display: flex;
+  gap: $paragraph-spacing-xxl;
+
+  @media (max-width: 990px) {
+    position: fixed;
+    top: 0;
+    right: -285px;
+    z-index: 11;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    height: 100%;
+    padding: $paragraph-spacing-4x;
+    background-color: $primary-high;
+    border: $border-m solid $secondary-black;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    box-shadow: 0 0 4px 4px rgba($secondary-black, 0.15);
+    transition: right 0.3s ease;
+  }
+}
+
+.navItem {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $secondary-black;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.active {
+  &::after {
+    width: 100%;
+  }
+}
+
+.menuActive {
+  right: 0;
+}
+
+.menuButton {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+
+  @media (min-width: 991px) {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($secondary-black, 0.15);
+  z-index: 9;
+  backdrop-filter: blur(2px);
+}
