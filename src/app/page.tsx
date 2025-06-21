@@ -1,5 +1,5 @@
-import Typography from '@/components/general/Typography/Typography';
+import styles from './page.module.scss';
 
 export default function Home() {
-  return <Typography variant="h1">Hello world</Typography>;
+  return <div className={styles.container}></div>;
 }

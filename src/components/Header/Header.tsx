@@ -21,6 +21,7 @@ const NAV_LINKS = [
 
 const Header = () => {
   const pathname = usePathname();
+  const isHomePage = pathname === ROUTES.HOME;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,7 +34,9 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header
+      className={clsx(styles.header, { [styles.secondaryHeader]: !isHomePage })}
+    >
       <Link href={ROUTES.HOME} className={styles.logoContainer}>
         <RiCameraLensLine size={80} />
         <div className={styles.logoTextBox}>

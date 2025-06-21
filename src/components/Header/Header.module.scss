@@ -8,13 +8,16 @@
   width: 100vw;
   height: 100px;
   padding: 0 50px;
-  background-color: $secondary-white;
-  border-bottom: $border-m solid $secondary-black;
-  box-shadow: 0 4px 10px rgba($secondary-black, 0.15);
+  background-color: transparent;
+  color: $secondary-white;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
+}
+
+.secondaryHeader {
+  color: $secondary-black;
 }
 
 //logo
@@ -78,7 +81,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: $secondary-black;
+    background-color: $primary-olive;
     transition: width 0.3s ease;
   }
 
@@ -102,6 +105,10 @@
   margin: 0;
   border: none;
   background-color: transparent;
+
+  svg {
+    color: $secondary-white;
+  }
 
   @media (min-width: 991px) {
     display: none;
