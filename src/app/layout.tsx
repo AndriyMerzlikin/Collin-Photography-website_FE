@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Noticia_Text } from 'next/font/google';
 import '@/theme/globals.scss';
-import Header from "@/components/Header/Header";
+import Header from '@/components/Header/Header';
 
 const noticia = Noticia_Text({
   variable: '--font-noticia-text',
@@ -26,8 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={noticia.variable}>
-      <Header/>
-      {children}</body>
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
