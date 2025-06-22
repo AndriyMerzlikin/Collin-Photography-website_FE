@@ -1,0 +1,97 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  margin-top: 100px;
+  width: 100vw;
+}
+
+// title section
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $paragraph-spacing-xxl;
+  padding: 80px 50px;
+  background-color: $secondary-low;
+  color: $primary-olive;
+
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+.socialButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: $primary-olive;
+  transition: background-color 0.3s ease;
+
+  svg {
+    color: $secondary-low;
+  }
+
+  &:hover {
+    background-color: $primary-medium;
+  }
+}
+
+// contacts section
+
+.contactsContainer {
+  display: flex;
+  gap: 70px;
+  padding: 80px 50px;
+  background-color: $primary-olive;
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+  }
+}
+
+.formBox {
+  width: 50%;
+
+  @media (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+.infoBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+.infoTitle {
+  text-transform: uppercase;
+  color: $primary-medium;
+  margin-bottom: $paragraph-spacing-m;
+}
+
+.infoSubtitle {
+  color: $secondary-white;
+}
+
+.infoText {
+  color: $secondary-white;
+  margin-bottom: $paragraph-spacing-xl;
+}
+
+.emailLink {
+  text-decoration: underline;
+  color: $primary-medium;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

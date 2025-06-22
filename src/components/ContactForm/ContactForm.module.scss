@@ -1,0 +1,37 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $paragraph-spacing-xl;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $paragraph-spacing-m;
+  width: 100%;
+
+  input,
+  textarea {
+    padding: $paragraph-spacing-l $paragraph-spacing-xl;
+    border: none;
+    border-radius: $border-radius-s;
+  }
+}
+
+.submitButton {
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-m;
+  background-color: $primary-medium;
+  color: $secondary-white;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-low;
+  }
+}
