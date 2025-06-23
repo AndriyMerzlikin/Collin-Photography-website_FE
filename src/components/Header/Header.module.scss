@@ -18,6 +18,8 @@
 
 .secondaryHeader {
   color: $secondary-black;
+  background-color: $secondary-white;
+  box-shadow: 0 4px 10px rgba($secondary-black, 0.15);
 }
 
 //nav panel
@@ -82,8 +84,12 @@
   border: none;
   background-color: transparent;
 
-  svg {
+  .svg {
     color: $secondary-white;
+  }
+
+  .secondarySvg {
+    color: $secondary-black;
   }
 
   @media (min-width: 991px) {
