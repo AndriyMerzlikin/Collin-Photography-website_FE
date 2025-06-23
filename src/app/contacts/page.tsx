@@ -13,7 +13,10 @@ const Contacts = () => {
         <Typography variant="body-large">
           We look forward to hear from you!
         </Typography>
-        <Link href="https://www.instagram.com/" className={styles.socialButton}>
+        <Link
+          href="https://www.instagram.com/collinruehrer?igsh=Mnc3aHNnOGc4ZWt4"
+          className={styles.socialButton}
+        >
           <FiInstagram size={35} />
         </Link>
       </section>

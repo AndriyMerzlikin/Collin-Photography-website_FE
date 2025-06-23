@@ -24,10 +24,10 @@ const Footer = () => {
               </Typography>
               <Typography className={styles.contactText}>Email:</Typography>
               <Typography className={styles.contactText}>
-                collinsemail@gmail.com
+                collin.r.photography@gmail.com
               </Typography>
               <Link
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/collinruehrer?igsh=Mnc3aHNnOGc4ZWt4"
                 className={styles.socialButton}
               >
                 <FiInstagram size={25} />

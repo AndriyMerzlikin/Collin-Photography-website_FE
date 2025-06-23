@@ -34,4 +34,23 @@
   &:hover {
     background-color: $primary-low;
   }
+
+  &:disabled {
+    background-color: $secondary-medium;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+  }
+}
+
+.inputError {
+  border-color: $red-error;
+}
+
+.errorText {
+  color: $red-error;
+  font-weight: $font-weight-s;
+  font-size: $font-size-xxs;
+  line-height: $line-height-xs;
+  letter-spacing: $letter-spacing-m;
 }
