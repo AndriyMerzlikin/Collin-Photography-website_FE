@@ -1,22 +1,7 @@
 import React from 'react';
-import styles from './loading.module.scss';
+import Loader from '@/components/Loader/Loader';
 
 const Loading = () => {
-  return (
-    <div className={styles.ldsSpinner}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+  return <Loader />;
 };
 export default Loading;
