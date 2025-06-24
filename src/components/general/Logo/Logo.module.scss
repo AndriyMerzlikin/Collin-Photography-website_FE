@@ -5,6 +5,14 @@
   display: flex;
   gap: $paragraph-spacing-s;
   align-items: center;
+
+
+  @media (max-width: 550px) {
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
 }
 
 .logoTextBox {
@@ -12,13 +20,24 @@
   flex-direction: column;
   text-transform: uppercase;
   font-weight: $font-weight-l;
+  text-shadow: 2px 2px 4px rgba($secondary-black, 0.3);
 
   .span1 {
     letter-spacing: $letter-spacing-xxl;
     font-size: 1.9rem;
+
+    @media (max-width: 550px) {
+      letter-spacing: $letter-spacing-xl;
+      font-size: 1.6rem;
+    }
   }
 
   .span2 {
     letter-spacing: $letter-spacing-l;
+
+    @media (max-width: 550px) {
+      letter-spacing: $letter-spacing-l;
+      font-size: 0.77rem;
+    }
   }
 }
