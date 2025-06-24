@@ -61,7 +61,10 @@ const Header = () => {
       ) : null}
 
       <button onClick={handleToggleMenu} className={styles.menuButton}>
-        <FiMenu size={30} />
+        <FiMenu
+          size={30}
+          className={clsx(styles.svg, { [styles.secondarySvg]: !isHomePage })}
+        />
       </button>
     </header>
   );
