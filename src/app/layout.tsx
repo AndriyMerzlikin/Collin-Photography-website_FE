@@ -4,6 +4,7 @@ import { Noticia_Text } from 'next/font/google';
 import '@/theme/globals.scss';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import {Toaster} from "react-hot-toast";
 
 const noticia = Noticia_Text({
   variable: '--font-noticia-text',
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+      <Toaster toastOptions={{duration: 4000}}/>
       </body>
     </html>
   );
