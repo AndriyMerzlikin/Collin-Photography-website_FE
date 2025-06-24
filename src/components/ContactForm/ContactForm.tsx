@@ -9,11 +9,13 @@ import {
   TContactFormSchema,
 } from '@/components/ContactForm/contactFormSchema';
 import clsx from 'clsx';
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
+      reset,
     formState: { errors, isValid },
   } = useForm<TContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
@@ -21,8 +23,27 @@ const ContactForm = () => {
   });
 
   const onSubmit: SubmitHandler<TContactFormSchema> = async (data) => {
-    console.log(data);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        toast.success('Message sent successfully!', {
+          icon: '📩',
+        })
+       reset()
+      } else {
+       toast.error('Something went wrong!')
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Server is unavailable!')
+    }
   };
+
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
