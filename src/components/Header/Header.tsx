@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Header.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import Link from 'next/link';
@@ -24,6 +24,17 @@ const Header = () => {
   const isHomePage = pathname === ROUTES.HOME;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +46,7 @@ const Header = () => {
 
   return (
     <header
-      className={clsx(styles.header, { [styles.secondaryHeader]: !isHomePage })}
+      className={clsx(styles.header, { [styles.secondaryHeader]: !isHomePage || scrolled })}
     >
       <Logo />
 
@@ -63,7 +74,7 @@ const Header = () => {
       <button onClick={handleToggleMenu} className={styles.menuButton}>
         <FiMenu
           size={30}
-          className={clsx(styles.svg, { [styles.secondarySvg]: !isHomePage })}
+          className={clsx(styles.svg, { [styles.secondarySvg]: !isHomePage || scrolled })}
         />
       </button>
     </header>

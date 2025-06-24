@@ -1,4 +1,22 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
 .container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+}
+
+.sectionContentBox {
+  padding: 0 50px;
+  width: 100%;
+
+  @media (max-width: 550px) {
+    padding: 0 30px;
+  }
+}
+
+.heroSection {
   width: 100vw;
   height: 100vh;
   background-image: url('/bg-picture.jpg');
@@ -10,3 +28,52 @@
   justify-content: center;
   position: relative;
 }
+
+.heroTitle {
+  text-transform: uppercase;
+  color: $secondary-white;
+  margin-bottom: $paragraph-spacing-l;
+  margin-top: 180px;
+
+  span {
+    display: block;
+    text-shadow: 2px 2px 4px rgba($secondary-black, 0.3);
+    line-height: 1.2;
+    font-size: $font-size-xxl;
+  }
+
+  @media (max-width: 550px) {
+    span {
+      font-size: $font-size-l;
+    }
+  }
+}
+
+.heroSubTitle {
+  text-transform: uppercase;
+  line-height: $line-height-xl;
+  font-size: $font-size-xl;
+  color: $primary-medium;
+  text-shadow: 2px 2px 4px rgba($secondary-black, 0.3);
+  margin-bottom: $paragraph-spacing-3x;
+
+  @media (max-width: 550px) {
+    line-height: $line-height-m;
+      font-size: $font-size-m;
+  }
+}
+
+.heroText {
+  line-height: $line-height-m;
+  font-size: $font-size-s;
+  color: $secondary-white;
+
+  @media (max-width: 550px) {
+    line-height: $line-height-m;
+    font-size: $font-size-s;
+  }
+}
+
+
+
+
