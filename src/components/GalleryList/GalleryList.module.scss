@@ -1,0 +1,73 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  padding: 10px;
+
+  @media (max-width: 990px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.itemBox {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid $secondary-medium;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba($secondary-black, 0.2);
+    border-color: $primary-medium;
+  }
+
+  &:hover .iconOverlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.iconOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  color: $secondary-white;
+  font-size: 2rem;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+}
