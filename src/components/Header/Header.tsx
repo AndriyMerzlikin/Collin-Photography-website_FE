@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import Link from 'next/link';
@@ -46,7 +46,9 @@ const Header = () => {
 
   return (
     <header
-      className={clsx(styles.header, { [styles.secondaryHeader]: !isHomePage || scrolled })}
+      className={clsx(styles.header, {
+        [styles.secondaryHeader]: !isHomePage || scrolled,
+      })}
     >
       <Logo />
 
@@ -74,7 +76,9 @@ const Header = () => {
       <button onClick={handleToggleMenu} className={styles.menuButton}>
         <FiMenu
           size={30}
-          className={clsx(styles.svg, { [styles.secondarySvg]: !isHomePage || scrolled })}
+          className={clsx(styles.svg, {
+            [styles.secondarySvg]: !isHomePage || scrolled,
+          })}
         />
       </button>
     </header>

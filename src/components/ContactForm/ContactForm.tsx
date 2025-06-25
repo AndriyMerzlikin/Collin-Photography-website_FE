@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import styles from './ContactForm.module.scss';
@@ -9,13 +9,13 @@ import {
   TContactFormSchema,
 } from '@/components/ContactForm/contactFormSchema';
 import clsx from 'clsx';
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
-      reset,
+    reset,
     formState: { errors, isValid },
   } = useForm<TContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
@@ -33,17 +33,16 @@ const ContactForm = () => {
       if (res.ok) {
         toast.success('Message sent successfully!', {
           icon: '📩',
-        })
-       reset()
+        });
+        reset();
       } else {
-       toast.error('Something went wrong!')
+        toast.error('Something went wrong!');
       }
     } catch (error) {
       console.error(error);
-      toast.error('Server is unavailable!')
+      toast.error('Server is unavailable!');
     }
   };
-
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +54,7 @@ const ContactForm = () => {
           className={clsx({ [styles.inputError]: errors.name })}
         />
         {errors.name && (
-            <p className={styles.errorText}>{errors.name.message}</p>
+          <p className={styles.errorText}>{errors.name.message}</p>
         )}
         <input
           {...register('email')}
@@ -64,7 +63,7 @@ const ContactForm = () => {
           className={clsx({ [styles.inputError]: errors.email })}
         />
         {errors.email && (
-            <p className={styles.errorText}>{errors.email.message}</p>
+          <p className={styles.errorText}>{errors.email.message}</p>
         )}
         <input
           {...register('phone')}
@@ -73,7 +72,7 @@ const ContactForm = () => {
           className={clsx({ [styles.inputError]: errors.phone })}
         />
         {errors.phone && (
-            <p className={styles.errorText}>{errors.phone.message}</p>
+          <p className={styles.errorText}>{errors.phone.message}</p>
         )}
         <textarea
           {...register('comment')}
@@ -81,7 +80,7 @@ const ContactForm = () => {
           className={clsx({ [styles.inputError]: errors.comment })}
         />
         {errors.comment && (
-            <p className={styles.errorText}>{errors.comment.message}</p>
+          <p className={styles.errorText}>{errors.comment.message}</p>
         )}
       </div>
       <button type="submit" className={styles.submitButton} disabled={!isValid}>
