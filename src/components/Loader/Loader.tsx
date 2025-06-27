@@ -1,22 +1,7 @@
 import React from 'react';
-import styles from './loader.module.scss';
+import { FadeLoader } from 'react-spinners';
 
 const Loader = () => {
-  return (
-    <div className={styles.ldsSpinner}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+  return <FadeLoader color="#bcac8c" />;
 };
 export default Loader;
