@@ -6,10 +6,16 @@ import { ROUTES } from '@/constants/routes';
 
 const NotFoundPage = () => (
   <div className={styles.notFoundContainer}>
-    <Typography variant="h1">404 - Page Not Found</Typography>
-    <Typography>Sorry, the page you are looking for does not exist.</Typography>
+    <Typography variant="h1" className={styles.notFoundTitle}>
+      404 - Page Not Found
+    </Typography>
+    <Typography className={styles.notFoundMessage}>
+      Sorry, the page you are looking for does not exist.
+    </Typography>
     <Link href={ROUTES.HOME} className={styles.homeLink}>
-      <Typography variant="body-large">Go to Home page</Typography>
+      <Typography variant="body-large" className={styles.homeLinkText}>
+        Go to Home page
+      </Typography>
     </Link>
   </div>
 );

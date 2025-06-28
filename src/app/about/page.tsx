@@ -1,6 +1,7 @@
 import Typography from '@/components/general/Typography/Typography';
 import React from 'react';
 import styles from './page.module.scss';
+import Image from 'next/image';
 
 const About = () => {
   return (
@@ -8,26 +9,47 @@ const About = () => {
       <Typography variant="h1" className={styles.heading}>
         About
       </Typography>
-      <Typography>
-        My Journey in Photography I started photography in August of 2024. I am
-        currently based in Austria, and I am fortunate enough be surrounded by
-        plenty of nature and wildlife. Additionally, I am close to beautiful
-        nature reserves where I can explore and capture the wonders of the
-        natural world. My initial inspiration came from a photographer named
-        Robert Marc Lehmann. A few months later, I discovered my mom s
-        twenty-year-old camera lying around. It was that moment when I began
-        taking pictures. I quickly developed a passion for photography, leading
-        me to purchase my first camera just a few weeks later. Now, almost a
-        year into my photography journey, I have dedicatet a significant amount
-        of time capturing the wildlife of Austria. Photography provides me a
-        sense of freedom and allows me to be present in the moment. It is a
-        powerful outlet for my creativity, as I strive to capture unique
-        pictures and moments. I thoroughly enjoy learning new techniques and
-        embracing the present. While I acknowledge that I am still a relatively
-        new photographer, I am very pleased with my progress this far. I m
-        looking forward to continuing my photography journey and seeing what the
-        future holds.
-      </Typography>
+      <div className={styles.textRow}>
+        <Image
+          src="/about1.jpg"
+          alt="Digital prints"
+          width={400}
+          height={400}
+          priority
+          className={styles.image}
+        />
+        <Typography className={styles.textLeft}>
+          My Journey in Photography I started photography in August of 2024. I
+          am currently based in Austria, and I am fortunate enough be surrounded
+          by plenty of nature and wildlife. Additionally, I am close to
+          beautiful nature reserves where I can explore and capture the wonders
+          of the natural world. My initial inspiration came from a photographer
+          named Robert Marc Lehmann. A few months later, I discovered my mom's
+          twenty-year-old camera lying around. It was that moment when I began
+          taking pictures. I quickly developed a passion for photography,
+          leading me to purchase my first camera just a few weeks later.
+        </Typography>
+      </div>
+      <div className={styles.textRowReverse}>
+        <Image
+          src="/about1.jpg"
+          alt="Frame prints"
+          width={400}
+          height={400}
+          className={`${styles.image} ${styles.imageRight}`}
+        />
+        <Typography className={styles.textRight}>
+          Now, almost a year into my photography journey, I have dedicated a
+          significant amount of time capturing the wildlife of Austria.
+          Photography provides me a sense of freedom and allows me to be present
+          in the moment. It is a powerful outlet for my creativity, as I strive
+          to capture unique pictures and moments. I thoroughly enjoy learning
+          new techniques and embracing the present. While I acknowledge that I
+          am still a relatively new photographer, I am very pleased with my
+          progress this far. I'm looking forward to continuing my photography
+          journey and seeing what the future holds.
+        </Typography>
+      </div>
     </div>
   );
 };
