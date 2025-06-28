@@ -11,3 +11,14 @@
   color: $primary-olive;
   background-color: $primary-high;
 }
+.notFoundTitle {
+  @media (max-width: 768px) {
+    font-size: $font-size-s;
+    max-width: 500px;
+  }
+}
+.notFoundMessage {
+  @media (max-width: 768px) {
+    font-size: $font-size-xs;
+  }
+}
