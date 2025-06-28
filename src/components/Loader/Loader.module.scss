@@ -1,0 +1,15 @@
+@use 'src/theme/colors' as *;
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $secondary-white;
+}
