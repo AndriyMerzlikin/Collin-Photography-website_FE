@@ -8,7 +8,11 @@
   flex-direction: column;
   align-items: center;
   background-color: $secondary-low;
-  width: 120%;
+  width: 100%;
+
+  @media (max-width: 550px) {
+    padding: $paragraph-spacing-3x;
+  }
 }
 
 .heading {
@@ -20,7 +24,7 @@
 .textRow,
 .textRowReverse {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-bottom: $paragraph-spacing-3x;
   gap: $paragraph-spacing-3x;
@@ -31,6 +35,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -39,6 +44,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -51,6 +57,7 @@
   @media (max-width: 550px) {
     font-size: $font-size-xs;
   }
+
   @media (max-width: 768px) {
     font-size: $font-size-s;
   }
