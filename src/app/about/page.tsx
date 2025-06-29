@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className={styles.aboutSection}>
       <Typography variant="h1" className={styles.heading}>
-        About
+        About Me
       </Typography>
       <div className={styles.textRow}>
         <Image
@@ -19,12 +19,12 @@ const About = () => {
           className={styles.image}
         />
         <Typography className={styles.textLeft}>
-          My Journey in Photography I started photography in August of 2024. I
-          am currently based in Austria, and I am fortunate enough be surrounded
-          by plenty of nature and wildlife. Additionally, I am close to
-          beautiful nature reserves where I can explore and capture the wonders
-          of the natural world. My initial inspiration came from a photographer
-          named Robert Marc Lehmann. A few months later, I discovered my mom's
+          My Journey in Photography I started in August of 2024. I am currently
+          based in Austria, and I am fortunate enough to be surrounded by plenty
+          of nature and wildlife. Additionally, I am close to beautiful nature
+          reserves where I can explore and capture the wonders of the natural
+          world. My initial inspiration came from a photographer named Robert
+          Marc Lehmann. A few months later, I discovered my mom's
           twenty-year-old camera lying around. It was that moment when I began
           taking pictures. I quickly developed a passion for photography,
           leading me to purchase my first camera just a few weeks later.

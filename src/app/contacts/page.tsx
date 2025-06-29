@@ -33,7 +33,7 @@ const Contacts = () => {
             Contact Collin
           </Typography>
           <Typography variant="body-large" className={styles.infoText}>
-            Interested in working with <span>Collin</span>, the 17-year-old
+            Interested in working with <span>Collin</span>, the 15-year-old
             nature and wildlife photographer? Whether you’re an agency looking
             to showcase fresh talent or you’d like to feature his work in your
             project, reach out to him by the email.

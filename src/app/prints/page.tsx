@@ -15,8 +15,8 @@ const PrintsPage = () => {
             <Image
               src="/gallery2.jpg"
               alt="Digital prints"
-              width={600}
-              height={400}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               priority
               className={styles.image}
             />
@@ -30,8 +30,8 @@ const PrintsPage = () => {
             <Image
               src="/gallery3.jpg"
               alt="Frame prints"
-              width={600}
-              height={400}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.image}
             />
             <Typography variant="h3" className={styles.overlayText}>

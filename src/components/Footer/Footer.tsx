@@ -44,7 +44,7 @@ const Footer = () => {
                 purchase his first calendar
               </Typography>
               <Typography className={styles.descriptionText}>
-                At just 17 years old,{' '}
+                At just 15 years old,{' '}
                 <span className={styles.descriptionSpan}>Collin</span> is a
                 rising nature and wildlife photographer with a deep love for the
                 outdoors. With only one year of experience, he captures
