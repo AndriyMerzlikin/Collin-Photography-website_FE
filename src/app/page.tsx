@@ -40,7 +40,7 @@ export default function Home() {
         className={clsx(styles.sectionContentBox, styles.galleryContainer)}
       >
         <Typography variant="h3">gallery</Typography>
-        <GalleryList />
+        <GalleryList category="all" />
         <button className={styles.galleryButton}>more photos</button>
       </section>
       <section className={clsx(styles.sectionContentBox, styles.newsContainer)}>
