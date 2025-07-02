@@ -6,31 +6,32 @@ import Image from 'next/image';
 import { FiZoomIn } from 'react-icons/fi';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import {
+  GalleryCategoryAll,
+  GalleryItem,
+  galleryList,
+} from '@/constants/galleryList';
 
-const galleryList = [
-  'gallery1.jpg',
-  'gallery2.jpg',
-  'gallery3.jpg',
-  'gallery4.jpg',
-  'gallery5.jpg',
-  'gallery6.jpg',
-  'gallery7.jpg',
-  'gallery8.jpg',
-  'gallery9.jpg',
-  'gallery10.jpg',
-];
+type Props = {
+  category: GalleryCategoryAll;
+};
 
-const GalleryList = () => {
+const GalleryList = ({ category }: Props) => {
+  const filteredList: GalleryItem[] =
+    category === 'all'
+      ? galleryList
+      : galleryList.filter((item) => item.category === category);
+
   return (
     <PhotoProvider>
       <ul className={styles.container}>
-        {galleryList.map((item, index) => (
-          <li key={index} className={styles.itemBox}>
-            <PhotoView src={`/${item}`}>
+        {filteredList.map((item) => (
+          <li key={item.id} className={styles.itemBox}>
+            <PhotoView src={item.image}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={`/${item}`}
-                  alt={`Gallery image ${index + 1}`}
+                  src={item.image}
+                  alt={item.title}
                   className={styles.image}
                   width={500}
                   height={500}

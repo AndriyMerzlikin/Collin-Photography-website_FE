@@ -1,0 +1,43 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.wrapper {
+  position: relative;
+  margin-bottom: $paragraph-spacing-xl;
+}
+
+.button {
+  background: $secondary-white;
+  border: $border-m solid $secondary-medium;
+  padding: $paragraph-spacing-l;
+  border-radius: $border-radius-m;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.icon {
+  margin-left: 10px;
+}
+
+.options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: $secondary-white;
+  border: $border-m solid #ccc;
+  border-radius: $border-radius-m;
+  z-index: 10;
+}
+
+.option {
+  padding: $paragraph-spacing-l;
+  cursor: pointer;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
