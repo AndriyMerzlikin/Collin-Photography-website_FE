@@ -1,0 +1,1 @@
+export const BASE_URL = "https://collin-photography-website-be.onrender.com";
