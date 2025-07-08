@@ -28,6 +28,8 @@
   justify-content: center;
   margin-bottom: $paragraph-spacing-3x;
   gap: $paragraph-spacing-3x;
+  width: 100%;
+  max-width: 800px;
 }
 
 .textRow {
@@ -63,19 +65,26 @@
   }
 }
 
-.image {
-  border-radius: 1rem;
-
+.imageWrapper {
+  position: relative;
+  width: 100%;
   max-width: 400px;
+  aspect-ratio: 1 / 1;
+
   @media (max-width: 550px) {
     max-width: 200px;
-    max-height: 200px;
   }
+
   @media (max-width: 768px) {
     max-width: 300px;
-    max-height: 300px;
   }
 }
+
+.image {
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
 .imageRight {
   @media (max-width: 768px) {
     display: none;

@@ -10,14 +10,16 @@ const About = () => {
         About Me
       </Typography>
       <div className={styles.textRow}>
-        <Image
-          src="/about1.jpg"
-          alt="Digital prints"
-          width={400}
-          height={400}
-          priority
-          className={styles.image}
-        />
+        <div className={styles.imageWrapper}>
+          <Image
+              src="/aboutMainImage.jpg"
+              alt="About Me Photo"
+              fill
+              sizes="(max-width: 768px) 300px, 400px"
+              className={styles.image}
+              priority
+          />
+        </div>
         <Typography className={styles.textLeft}>
           My Journey in Photography I started in August of 2024. I am currently
           based in Austria, and I am fortunate enough to be surrounded by plenty
@@ -31,13 +33,15 @@ const About = () => {
         </Typography>
       </div>
       <div className={styles.textRowReverse}>
+        <div className={styles.imageWrapper}>
         <Image
           src="/about1.jpg"
-          alt="Frame prints"
-          width={400}
-          height={400}
+          alt="About Me Photo"
+          fill
+          sizes="(max-width: 768px) 300px, 400px"
           className={`${styles.image} ${styles.imageRight}`}
         />
+        </div>
         <Typography className={styles.textRight}>
           Now, almost a year into my photography journey, I have dedicated a
           significant amount of time capturing the wildlife of Austria.
