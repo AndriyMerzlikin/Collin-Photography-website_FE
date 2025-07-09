@@ -14,12 +14,14 @@ const About = () => {
           <Image
               src="/aboutMainImage.jpg"
               alt="About Me Photo"
-              fill
-              sizes="(max-width: 768px) 300px, 400px"
+              width={400}
+              height={400}
+              sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
               className={styles.image}
               priority
           />
         </div>
+
         <Typography className={styles.textLeft}>
           My Journey in Photography I started in August of 2024. I am currently
           based in Austria, and I am fortunate enough to be surrounded by plenty
@@ -37,8 +39,9 @@ const About = () => {
         <Image
           src="/about1.jpg"
           alt="About Me Photo"
-          fill
-          sizes="(max-width: 768px) 300px, 400px"
+          width={400}
+          height={400}
+          sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
           className={`${styles.image} ${styles.imageRight}`}
         />
         </div>

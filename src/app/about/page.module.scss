@@ -66,22 +66,21 @@
 }
 
 .imageWrapper {
-  position: relative;
   width: 100%;
   max-width: 400px;
-  aspect-ratio: 1 / 1;
-
-  @media (max-width: 550px) {
-    max-width: 200px;
-  }
 
   @media (max-width: 768px) {
     max-width: 300px;
   }
+
+  @media (max-width: 550px) {
+    max-width: 200px;
+  }
 }
 
 .image {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
   border-radius: 1rem;
 }
 
