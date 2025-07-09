@@ -23,7 +23,7 @@ const About = () => {
         </div>
 
         <Typography className={styles.textLeft}>
-          My Journey in Photography I started in August of 2024. I am currently
+          I started my Journey in Photography in August 2024. I am currently
           based in Austria, and I am fortunate enough to be surrounded by plenty
           of nature and wildlife. Additionally, I am close to beautiful nature
           reserves where I can explore and capture the wonders of the natural
