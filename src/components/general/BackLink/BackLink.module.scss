@@ -1,0 +1,25 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.backLink {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: $primary-olive;
+  background-color: transparent;
+  border: 1px solid $primary-olive;
+  border-radius: $border-radius-s;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $primary-high;
+    color: $secondary-white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}

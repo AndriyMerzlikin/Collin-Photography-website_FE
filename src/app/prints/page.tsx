@@ -13,7 +13,7 @@ const PrintsPage = () => {
         <Link href={ROUTES.DIGITAL} className={styles.cardWrapper}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/gallery2.jpg"
+              src="/digitalTitle.jpg"
               alt="Digital prints"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -28,7 +28,7 @@ const PrintsPage = () => {
         <Link href={ROUTES.FRAME} className={styles.cardWrapper}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/gallery3.jpg"
+              src="/frameTitle.jpg"
               alt="Frame prints"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

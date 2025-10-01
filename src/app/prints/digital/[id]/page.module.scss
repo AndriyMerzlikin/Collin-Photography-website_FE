@@ -1,0 +1,93 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 70px 50px;
+  margin-top: 100px;
+  width: 100vw;
+  background-color: $secondary-low;
+
+  @media (max-width: 768px) {
+    padding: 40px 30px;
+  }
+}
+
+.contentBox {
+  display: flex;
+  gap: $paragraph-spacing-xxl;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 50%;
+  aspect-ratio: 3 / 2;
+  border: $border-s solid $primary-low;
+  border-radius: $border-radius-s;
+  box-shadow: 4px 4px 8px rgba($secondary-black, 0.4);;
+
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.title {
+  color: $primary-olive;
+  margin-bottom: $paragraph-spacing-xl;
+}
+
+.price {
+  margin-bottom: $paragraph-spacing-xl;
+  color: $primary-low;
+  text-shadow: 2px 2px 4px rgba($primary-medium, 0.8);;
+}
+
+.category {
+  margin-bottom: $paragraph-spacing-m;
+}
+
+.description {
+  margin-bottom: $paragraph-spacing-3x;
+}
+
+.cartButton {
+  width: fit-content;
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  margin-top: auto;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-m;
+  background-color: $primary-medium;
+  color: $secondary-white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $primary-low;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+
