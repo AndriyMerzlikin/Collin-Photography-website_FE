@@ -9,6 +9,7 @@ import { ROUTES } from '@/constants/routes';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import Logo from '@/components/general/Logo/Logo';
+import {useCart} from "@/context/cartContext";
 
 const NAV_LINKS = [
   { href: ROUTES.HOME, label: 'Home' },
@@ -22,6 +23,9 @@ const NAV_LINKS = [
 const Header = () => {
   const pathname = usePathname();
   const isHomePage = pathname === ROUTES.HOME;
+
+  const { cart } = useCart();
+  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -55,18 +59,26 @@ const Header = () => {
       <nav
         className={clsx(styles.navList, { [styles.menuActive]: isMenuOpen })}
       >
-        {NAV_LINKS.map(({ href, label }) => (
-          <Link
-            key={label}
-            href={href}
-            onClick={handleMenuClose}
-            className={clsx(styles.navItem, {
-              [styles.active]: pathname === href,
-            })}
-          >
-            <Typography variant="body-large">{label}</Typography>
-          </Link>
-        ))}
+        {NAV_LINKS.map(({ href, label }) => {
+          const isCart = label === 'Cart';
+          return(
+              <Link
+                  key={label}
+                  href={href}
+                  onClick={handleMenuClose}
+                  className={clsx(styles.navItem, {
+                    [styles.active]: pathname === href,
+                  })}
+              >
+                <Typography variant="body-large">
+                  {label}
+                  {isCart && cartItemCount > 0 && (
+                      <span className={styles.cartBadge}>{cartItemCount}</span>
+                  )}
+                </Typography>
+              </Link>
+          )
+        })}
       </nav>
 
       {isMenuOpen ? (
