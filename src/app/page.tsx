@@ -29,7 +29,7 @@ export default function Home() {
           inspired by renowned wildlife photographer Robert Marc Lehmann. Living
           in Austria, he’s surrounded by rich nature and wildlife, which quickly
           fueled his passion. After discovering his mother’s old camera, he
-          started taking photos and soon invested in his own gear. Nearly a year
+          started taking photos and soon invested in his own gear. Over a year
           in, Collin continues to explore nature reserves, capturing unique
           moments of wildlife. Photography has become a creative outlet and a
           way for him to stay present, and he's excited to keep growing on this
