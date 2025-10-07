@@ -10,23 +10,25 @@ import { CalendarsDataItem } from '@/types/calendarsDataTypes';
 import { calendarsData } from '@/constants/calendarsData';
 import Typography from '@/components/general/Typography/Typography';
 import { FiMinus, FiPlus } from 'react-icons/fi';
-import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import Slider from 'react-slick';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const NextArrow = ({ onClick }: { onClick?: () => void }) => (
-    <button className={styles.nextArrow} onClick={onClick}>
-      <FaChevronRight size={22} />
-    </button>
+  <button className={styles.nextArrow} onClick={onClick}>
+    <FaChevronRight size={22} />
+  </button>
 );
 
 const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
-    <button className={styles.prevArrow} onClick={onClick}>
-      <FaChevronLeft size={22} />
-    </button>
+  <button className={styles.prevArrow} onClick={onClick}>
+    <FaChevronLeft size={22} />
+  </button>
 );
 
 const CalendarItemPage = () => {
@@ -104,33 +106,46 @@ const CalendarItemPage = () => {
       <BackLink href={ROUTES.FRAME} title="Back to Calendars" />
       <div className={styles.cardContainer}>
         <div className={styles.imgContainer}>
-          <div className={styles.imgWrapper}>
-            <Image
-                src={mainImage!}
-                alt={item.title}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className={styles.image}
-            />
-          </div>
+          <PhotoProvider>
+            <div className={styles.imgWrapper}>
+              <PhotoView src={mainImage!}>
+                <Image
+                  src={mainImage!}
+                  alt={item.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={styles.image}
+                />
+              </PhotoView>
+            </div>
+
+            {item.imgUrl.map((img, index) =>
+              img !== mainImage ? (
+                <PhotoView src={img} key={index}>
+                  <span style={{ display: 'none' }} />
+                </PhotoView>
+              ) : null,
+            )}
+          </PhotoProvider>
+
           <div className={styles.sliderContainer}>
             <Slider {...sliderSettings}>
               {item.imgUrl.map((img, index) => (
-                  <div key={index} className={styles.thumbWrapper}>
-                    <div
-                        className={`${styles.thumbBox} ${mainImage === img ? styles.activeThumb : ''}`}
-                        onClick={() => setMainImage(img)}
-                    >
-                      <Image
-                          src={img}
-                          alt={`${item.title} thumbnail ${index + 1}`}
-                          width={150}
-                          height={100}
-                          className={styles.thumbImage}
-                      />
-                    </div>
+                <div key={index} className={styles.thumbWrapper}>
+                  <div
+                    className={`${styles.thumbBox} ${mainImage === img ? styles.activeThumb : ''}`}
+                    onClick={() => setMainImage(img)}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${item.title} thumbnail ${index + 1}`}
+                      width={150}
+                      height={100}
+                      className={styles.thumbImage}
+                    />
                   </div>
+                </div>
               ))}
             </Slider>
           </div>
@@ -144,15 +159,15 @@ const CalendarItemPage = () => {
             </Typography>
             <div className={styles.counterBox}>
               <button
-                  className={styles.counterBtn}
-                  onClick={handleDecrease}
-                  disabled={counter === 1}
+                className={styles.counterBtn}
+                onClick={handleDecrease}
+                disabled={counter === 1}
               >
-                <FiMinus/>
+                <FiMinus />
               </button>
               <div className={styles.counterText}>{counter}</div>
               <button className={styles.counterBtn} onClick={handleIncrease}>
-                <FiPlus/>
+                <FiPlus />
               </button>
             </div>
           </div>
