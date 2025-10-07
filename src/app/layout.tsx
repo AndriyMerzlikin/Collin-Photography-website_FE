@@ -5,7 +5,7 @@ import '@/theme/globals.scss';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { Toaster } from 'react-hot-toast';
-import {CartProvider} from "@/context/cartContext";
+import { CartProvider } from '@/context/cartContext';
 
 const noticia = Noticia_Text({
   variable: '--font-noticia-text',
@@ -29,12 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={noticia.variable}>
-      <CartProvider>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <Toaster toastOptions={{ duration: 4000 }} />
-      </CartProvider>
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <Toaster toastOptions={{ duration: 4000 }} />
+        </CartProvider>
       </body>
     </html>
   );

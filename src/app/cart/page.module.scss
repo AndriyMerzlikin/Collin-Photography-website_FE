@@ -47,7 +47,7 @@
 
 .cartItemTitle {
   @media (max-width: 550px) {
-margin-bottom: $paragraph-spacing-l;
+    margin-bottom: $paragraph-spacing-l;
   }
 }
 
@@ -81,7 +81,7 @@ margin-bottom: $paragraph-spacing-l;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba($red-error, 1)
+    background-color: rgba($red-error, 1);
   }
 }
 
@@ -112,7 +112,9 @@ margin-bottom: $paragraph-spacing-l;
   padding: $paragraph-spacing-xl $paragraph-spacing-xxl;
   border: none;
   border-radius: $border-radius-m;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 
   &:hover {
     background-color: #2e7a59;
@@ -123,7 +125,9 @@ margin-bottom: $paragraph-spacing-l;
 .clearButton {
   background-color: rgba($red-error, 0.8);
 
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 
   &:hover {
     background-color: rgba($red-error, 1.2);

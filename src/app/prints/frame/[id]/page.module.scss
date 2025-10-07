@@ -1,0 +1,228 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
+  padding: $paragraph-spacing-4x;
+  background-color: $secondary-low;
+
+  @media (max-width: 550px) {
+    padding: $paragraph-spacing-3x;
+  }
+}
+
+.cardContainer {
+  display: flex;
+  gap: $paragraph-spacing-xxl;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// image section
+
+.imgContainer {
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.imgWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+
+  overflow: hidden;
+  flex: 1 1 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+// info section
+
+.infoContainer {
+  width: 50%;
+
+  h2 {
+    color: $primary-olive;
+    margin-bottom: $paragraph-spacing-xl;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.quantityBox {
+  display: flex;
+  flex-direction: column;
+  gap: $paragraph-spacing-l;
+  margin-bottom: $paragraph-spacing-xl;
+
+  .quantityText {
+    text-transform: uppercase;
+  }
+}
+
+.counterBox {
+  display: flex;
+  width: fit-content;
+  border: $border-s solid $secondary-medium;
+  border-radius: $border-radius-s;
+  background-color: $secondary-white;
+
+  .counterBtn {
+    border: none;
+    border-radius: $border-radius-s;
+    padding: $paragraph-spacing-l;
+    background-color: $secondary-white;
+  }
+  .counterText {
+    display: block;
+    border: none;
+    font-weight: $font-weight-l;
+    padding: $paragraph-spacing-l;
+  }
+}
+
+.price {
+  font-size: $paragraph-spacing-4x;
+  line-height: 120%;
+  margin-bottom: $paragraph-spacing-xl;
+  color: $primary-low;
+  text-shadow: 2px 2px 4px rgba($primary-medium, 0.8);
+
+  @media (max-width: 550px) {
+    font-size: $paragraph-spacing-3x;
+  }
+}
+
+.cartButton {
+  width: 100%;
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  margin-bottom: 72px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-m;
+  background-color: $primary-medium;
+  color: $secondary-white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $primary-low;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.descriptionBox {
+  h3 {
+    margin-bottom: $paragraph-spacing-3x;
+  }
+
+  h4 {
+    margin-bottom: $paragraph-spacing-xxl;
+  }
+
+  .descriptionText {
+    margin-bottom: $paragraph-spacing-4x;
+  }
+
+  .detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: $paragraph-spacing-xl;
+  }
+}
+
+//Slider
+
+.sliderContainer {
+  width: 80%;
+  margin: 20px auto 40px;
+}
+
+.thumbWrapper {
+  padding: 5px;
+}
+
+.thumbBox {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border 0.2s ease-in-out;
+}
+
+.thumbBox:hover {
+  border-color: $primary-medium;
+}
+
+.activeThumb {
+  border-color: $primary-olive;
+}
+
+.thumbImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+// custom arrows
+
+.prevArrow,
+.nextArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba($primary-medium, 0.6);
+  border: none;
+  color: $secondary-white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba($primary-medium, 0.9);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  svg {
+    stroke-width: 2px;
+  }
+}
+
+.prevArrow {
+  left: -40px;
+}
+
+.nextArrow {
+  right: -40px;
+}
+
