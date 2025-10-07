@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './page.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import Link from 'next/link';
@@ -10,8 +10,11 @@ import { calendarsData } from '@/constants/calendarsData';
 import { CalendarsDataItem } from '@/types/calendarsDataTypes';
 
 const FramePage = () => {
-  const [frameList, setFrameList] =
-    useState<CalendarsDataItem[]>(calendarsData);
+    const [frameList, setFrameList] = useState<CalendarsDataItem[]>([]);
+
+    useEffect(() => {
+        setFrameList(calendarsData);
+    }, []);
 
   return (
     <div className={styles.container}>
