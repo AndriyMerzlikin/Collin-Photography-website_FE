@@ -4,4 +4,5 @@ export type CartItem = {
   price: number;
   previewImageUrl: string;
   quantity: number;
+  type?: 'digital' | 'frame';
 };

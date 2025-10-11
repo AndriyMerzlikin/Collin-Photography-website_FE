@@ -43,6 +43,10 @@
   border: $border-s solid $primary-medium;
   border-radius: $border-radius-s;
   background-color: $secondary-white;
+
+  @media (max-width: 550px) {
+    align-items: flex-start;
+  }
 }
 
 .cartItemTitle {
@@ -53,6 +57,7 @@
 
 .cartItemTextBox {
   display: flex;
+  align-items: center;
   width: 100%;
   padding: $paragraph-spacing-m;
 
@@ -134,3 +139,79 @@
     transform: translateY(-2px);
   }
 }
+
+// Counter
+
+.counterBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $paragraph-spacing-s;
+  border: $border-s solid $secondary-medium;
+  border-radius: $border-radius-s;
+  background-color: $secondary-white;
+  padding: 0 $paragraph-spacing-xs;
+  margin-left: auto;
+  margin-right: 10px;
+  width: fit-content;
+  min-width: 110px;
+  height: 42px;
+
+  @media (max-width: 900px) {
+    min-width: 100px;
+    height: 38px;
+  }
+
+  @media (max-width: 550px) {
+    min-width: 90px;
+    height: 34px;
+    gap: $paragraph-spacing-xs;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .counterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-white;
+    border: none;
+    border-radius: $border-radius-s;
+    width: 36px;
+    height: 100%;
+    font-size: $font-size-m;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($secondary-medium, 0.3);
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 900px) {
+      width: 32px;
+      font-size: $font-size-m;
+    }
+
+    @media (max-width: 550px) {
+      width: 28px;
+      font-size: $font-size-s;
+    }
+  }
+
+  .counterText {
+    flex: 1;
+    text-align: center;
+    font-weight: $font-weight-s;
+    font-size: $font-size-s;
+    color: $secondary-black;
+    letter-spacing: $letter-spacing-m;
+    line-height: $line-height-m;
+  }
+}
+

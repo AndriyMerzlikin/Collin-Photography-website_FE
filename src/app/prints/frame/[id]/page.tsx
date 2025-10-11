@@ -75,6 +75,7 @@ const CalendarItemPage = () => {
       price: item.price,
       previewImageUrl: item.imgUrl[0],
       quantity: counter,
+      type: "frame",
     });
 
     toast.success(`${item.title} added to cart 🛒`, {
@@ -155,7 +156,7 @@ const CalendarItemPage = () => {
           <p className={styles.price}>€{totalPrice}</p>
           <div className={styles.quantityBox}>
             <Typography variant="body-small" className={styles.quantityText}>
-              Amount
+              Quantity
             </Typography>
             <div className={styles.counterBox}>
               <button
