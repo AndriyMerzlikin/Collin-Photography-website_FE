@@ -13,7 +13,7 @@
 
 .infoBox {
   display: flex;
-  gap: 300px;
+  gap: 100px;
 
   @media (max-width: 990px) {
     flex-direction: column;
@@ -67,4 +67,30 @@
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.rulesBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 250px;
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: $secondary-medium;
+    margin: 4px 0;
+  }
+
+  a {
+    color: $secondary-low;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+
+    &:hover {
+      color: $primary-medium;
+      text-decoration: underline;
+    }
+  }
 }
