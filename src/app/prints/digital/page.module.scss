@@ -43,14 +43,14 @@
   border-radius: $border-radius-m;
   border: $border-s solid $secondary-black;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer;
   transition: 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
 
   h3 {
@@ -74,4 +74,3 @@
 .image {
   object-fit: cover;
 }
-

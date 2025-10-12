@@ -1,117 +1,643 @@
-export type GalleryCategory = 'birds' | 'animals' | 'nature';
+// export type GalleryCategory = 'birds' | 'landscape' | 'mammals';
+//
+// export type GalleryCategoryAll = GalleryCategory | 'all';
+//
+// export type GalleryItem = {
+//   id: number;
+//   title: string;
+//   description: string;
+//   category: GalleryCategory;
+//   digitalImage: boolean;
+//   frameImage: boolean;
+//   price: number;
+//   image: string;
+// };
 
-export type GalleryCategoryAll = GalleryCategory | 'all';
+import { GalleryItem } from '@/types/galleryTypes';
 
-export type GalleryItem = {
-  id: number;
-  title: string;
-  description: string;
-  category: GalleryCategory;
-  digitalImage: boolean;
-  frameImage: boolean;
-  price: number;
-  image: string;
-};
-
-export const galleryList: GalleryItem[] = [
+export const galleryData: GalleryItem[] = [
   {
-    id: 1,
-    title: 'Majestic Eagle',
-    description: 'A soaring eagle captured in the wild.',
-    category: 'birds',
+    _id: '68ebe0fc76cb297878cd35ba',
+    title: 'blazing horizon',
+    description: 'comming soon',
+    category: 'landscape',
     digitalImage: true,
     frameImage: false,
     price: 23.45,
-    image: '/gallery1.jpg',
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221392/pwzwx6yi6y3ew6dwlnse.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221392/pwzwx6yi6y3ew6dwlnse.jpg',
   },
   {
-    id: 2,
-    title: 'Calm Lake',
-    description: 'A serene view of a mountain lake at sunrise.',
-    category: 'nature',
-    digitalImage: false,
-    frameImage: true,
-    price: 34.99,
-    image: '/gallery2.jpg',
-  },
-  {
-    id: 3,
-    title: 'Playful Fox',
-    description: 'A red fox playing in the snow.',
-    category: 'animals',
-    digitalImage: true,
-    frameImage: true,
-    price: 19.95,
-    image: '/gallery3.jpg',
-  },
-  {
-    id: 4,
-    title: 'Tropical Parrot',
-    description: 'A colorful parrot perched on a branch.',
+    _id: '68ebe0fc76cb297878cd35bb',
+    title: 'the last light',
+    description: 'comming soon',
     category: 'birds',
-    digitalImage: false,
+    digitalImage: true,
+    frameImage: false,
+    price: 34.99,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221416/u24ot3aajn4ghgj92t28.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221416/u24ot3aajn4ghgj92t28.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35bc',
+    title: 'coastal light',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 19.95,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221393/j1lqf0yc63q9i1ngggwk.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221393/j1lqf0yc63q9i1ngggwk.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35bd',
+    title: 'grounded and airborne',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
     frameImage: false,
     price: 12.75,
-    image: '/gallery4.jpg',
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221393/co8ew6dygf0vsgdsbz2m.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221393/co8ew6dygf0vsgdsbz2m.jpg',
   },
   {
-    id: 5,
-    title: 'Forest Path',
-    description: 'A quiet path through a green forest.',
-    category: 'nature',
-    digitalImage: true,
-    frameImage: true,
-    price: 27.1,
-    image: '/gallery5.jpg',
-  },
-  {
-    id: 6,
-    title: 'Sleeping Cat',
-    description: 'A cat resting peacefully on a windowsill.',
-    category: 'animals',
+    _id: '68ebe0fc76cb297878cd35be',
+    title: 'Enjoying the sunlight',
+    description: 'comming soon',
+    category: 'birds',
     digitalImage: true,
     frameImage: false,
-    price: 15.0,
-    image: '/gallery6.jpg',
+    price: 27.1,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/jb6cw4gnjjow9syepjm1.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/jb6cw4gnjjow9syepjm1.jpg',
   },
   {
-    id: 7,
-    title: 'Hawk in Flight',
-    description: 'A hawk mid-flight scanning for prey.',
+    _id: '68ebe0fc76cb297878cd35bf',
+    title: 'perfectly framed',
+    description: 'comming soon',
     category: 'birds',
-    digitalImage: false,
-    frameImage: true,
-    price: 29.49,
-    image: '/gallery7.jpg',
-  },
-  {
-    id: 8,
-    title: 'Mountain Range',
-    description: 'Snow-covered peaks under a blue sky.',
-    category: 'nature',
     digitalImage: true,
-    frameImage: true,
-    price: 38.25,
-    image: '/gallery8.jpg',
+    frameImage: false,
+    price: 15,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221394/qdvz3je3bbf5smqtelr8.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221394/qdvz3je3bbf5smqtelr8.jpg',
   },
   {
-    id: 9,
-    title: 'Curious Deer',
-    description: 'A deer looking into the camera from a forest edge.',
-    category: 'animals',
-    digitalImage: false,
+    _id: '68ebe0fc76cb297878cd35c0',
+    title: 'feathered serenity',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 29.49,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221394/pvlaifcggigoovszu0na.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221394/pvlaifcggigoovszu0na.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c1',
+    title: 'looking up',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 38.25,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/heearp3nn8qgyv9p7sna.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/heearp3nn8qgyv9p7sna.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c2',
+    title: 'In the green mist',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/fygf2f0mssrzrjounpbz.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/fygf2f0mssrzrjounpbz.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c3',
+    title: 'illuminated silence',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/tue9qeic9ejtvsocr40q.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/tue9qeic9ejtvsocr40q.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c4',
+    title: 'new part of life',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221398/jz0hqwyw9psa460qxqcc.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221398/jz0hqwyw9psa460qxqcc.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c5',
+    title: 'midnight snack',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
     frameImage: false,
     price: 11.8,
-    image: '/gallery9.jpg',
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/eomhafjermloudlb6qhu.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221395/eomhafjermloudlb6qhu.jpg',
   },
   {
-    id: 10,
-    title: 'Seaside Sunset',
-    description: 'Sunset over the ocean with warm colors.',
-    category: 'nature',
+    _id: '68ebe0fc76cb297878cd35c6',
+    title: 'in the reeds',
+    description: 'comming soon',
+    category: 'birds',
     digitalImage: true,
     frameImage: false,
-    price: 40.0,
-    image: '/gallery10.jpg',
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221399/rdycitvsyg3u0vy23ax0.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221399/rdycitvsyg3u0vy23ax0.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c7',
+    title: 'high above',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221401/xxgbzikccle849nodmmq.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221401/xxgbzikccle849nodmmq.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c8',
+    title: 'moment of peace',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221401/oce7y6yzsdgt3eq7kd8z.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221401/oce7y6yzsdgt3eq7kd8z.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35c9',
+    title: 'voice of the reeds',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221402/bnzhcaxq8xwauivicjzi.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221402/bnzhcaxq8xwauivicjzi.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35ca',
+    title: 'shrikes exchange',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 34.99,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221403/l6q9k6b9h4w2lcp6dzmo.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221403/l6q9k6b9h4w2lcp6dzmo.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35cb',
+    title: 'fluffy trio',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 19.95,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221404/qxrh27mzomvcxsbobpsp.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221404/qxrh27mzomvcxsbobpsp.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35cc',
+    title: 'in the realm of flowers',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 12.75,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221405/rtfkdan2wadib1tqeato.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221405/rtfkdan2wadib1tqeato.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35cd',
+    title: 'little dinosaur',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 27.1,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221407/j8zet0e2wkqq3o08yx14.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221407/j8zet0e2wkqq3o08yx14.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35ce',
+    title: 'hands above the ground',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 15,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221407/ye9mafcgwupvcj6umru5.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221407/ye9mafcgwupvcj6umru5.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35cf',
+    title: 'emerges from the grass',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 29.49,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221408/tqvp1ps89szyoit9xjdl.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221408/tqvp1ps89szyoit9xjdl.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d0',
+    title: 'in the middle of the flowers',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 38.25,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221410/yhhwsaaeedqo299ciwe2.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221410/yhhwsaaeedqo299ciwe2.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d1',
+    title: 'prey secured',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/fygf2f0mssrzrjounpbz.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221396/fygf2f0mssrzrjounpbz.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d2',
+    title: 'golden',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221411/yoztqbz4remvf6lejg1v.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221411/yoztqbz4remvf6lejg1v.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d3',
+    title: 'curious squirrel',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221412/ggolny9aydoafphlrjti.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221412/ggolny9aydoafphlrjti.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d4',
+    title: 'where is my snack',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 11.8,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221413/xhun3fb0dzgbnqdxfmee.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221413/xhun3fb0dzgbnqdxfmee.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d5',
+    title: 'floating in peace',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221415/waz8ep7myj4hcgfsb4go.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221415/waz8ep7myj4hcgfsb4go.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d6',
+    title: 'littlle steps, big dreams',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221414/hojo01egnyitysugfjdx.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221414/hojo01egnyitysugfjdx.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d7',
+    title: 'the focused hunter',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221417/mu5omcj7amdzvg21e8w2.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221417/mu5omcj7amdzvg21e8w2.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d8',
+    title: 'we are family',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 38.25,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221417/nxc1xngxnphxhb3alhyf.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221417/nxc1xngxnphxhb3alhyf.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35d9',
+    title: ' two souls against silence',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221418/mfhcpekmgbjxvsfjcuur.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221418/mfhcpekmgbjxvsfjcuur.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35da',
+    title: 'new hope',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221420/r231vql5xs3ler0goloj.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221420/r231vql5xs3ler0goloj.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35db',
+    title: 'powerful flap',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221421/tflfm3mbzcetdeduxwq8.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221421/tflfm3mbzcetdeduxwq8.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35dc',
+    title: 'back at home',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 11.8,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221422/ywjroyi3aqjoy3w6pm2n.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221422/ywjroyi3aqjoy3w6pm2n.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35dd',
+    title: 'highly questionable',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221423/wdwjomm5kpgkrhdm8oxr.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221423/wdwjomm5kpgkrhdm8oxr.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35de',
+    title: 'meadow watcher',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221423/yoyxu1p9u2beajfmz0zm.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221423/yoyxu1p9u2beajfmz0zm.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35df',
+    title: 'celestial wings',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221424/so9g9dvhav52iu6sk2q9.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221424/so9g9dvhav52iu6sk2q9.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e0',
+    title: 'in the red',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221424/mhyfngkvzv4mybssowgj.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221424/mhyfngkvzv4mybssowgj.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e1',
+    title: 'crested elegance',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221427/rfebej44ojfmmkn3k8nc.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221427/rfebej44ojfmmkn3k8nc.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e2',
+    title: 'feathered focus',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 38.25,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221428/mlj16tfi6pyag5zv192a.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221428/mlj16tfi6pyag5zv192a.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e3',
+    title: 'a foggy morning',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221429/ecxzjtaec5jwygsaqvqd.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221429/ecxzjtaec5jwygsaqvqd.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e4',
+    title: 'morning song',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221430/gdnhmf53ljhifinpgm6o.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221430/gdnhmf53ljhifinpgm6o.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e5',
+    title: 'vocal portrait',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221432/hletxpgnp5lf2m8pfi4d.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221432/hletxpgnp5lf2m8pfi4d.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e6',
+    title: 'ears up',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 11.8,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221432/q0adpxfoj2zcxzwmggjt.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221432/q0adpxfoj2zcxzwmggjt.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e7',
+    title: 'above the sea',
+    description: 'comming soon',
+    category: 'birds',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221433/iuoiw202fwzxewyqifgi.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221433/iuoiw202fwzxewyqifgi.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e8',
+    title: 'eye to eye',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221434/hv9j55v0ohiqr5zhc6zc.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221434/hv9j55v0ohiqr5zhc6zc.jpg',
+  },
+  {
+    _id: '68ebe0fc76cb297878cd35e9',
+    title: 'forest solitude',
+    description: 'comming soon',
+    category: 'mammals',
+    digitalImage: true,
+    frameImage: false,
+    price: 40,
+    originalImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221435/dakh13v5q6v6o7i1kst5.jpg',
+    previewImageUrl:
+      'https://res.cloudinary.com/dthdhdt2c/image/upload/v1760221435/dakh13v5q6v6o7i1kst5.jpg',
   },
 ];

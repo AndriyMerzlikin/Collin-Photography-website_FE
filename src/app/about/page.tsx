@@ -12,13 +12,13 @@ const About = () => {
       <div className={styles.textRow}>
         <div className={styles.imageWrapper}>
           <Image
-              src="/aboutMainImage.jpg"
-              alt="About Me Photo"
-              width={400}
-              height={400}
-              sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
-              className={styles.image}
-              priority
+            src="/aboutMainImage.jpg"
+            alt="About Me Photo"
+            width={400}
+            height={400}
+            sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
+            className={styles.image}
+            priority
           />
         </div>
 
@@ -36,14 +36,14 @@ const About = () => {
       </div>
       <div className={styles.textRowReverse}>
         <div className={styles.imageWrapper}>
-        <Image
-          src="/about1.jpg"
-          alt="About Me Photo"
-          width={400}
-          height={400}
-          sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
-          className={`${styles.image} ${styles.imageRight}`}
-        />
+          <Image
+            src="/about1.jpg"
+            alt="About Me Photo"
+            width={400}
+            height={400}
+            sizes="(max-width: 550px) 200px, (max-width: 768px) 300px, 400px"
+            className={`${styles.image} ${styles.imageRight}`}
+          />
         </div>
         <Typography className={styles.textRight}>
           Now, almost a year into my photography journey, I have dedicated a

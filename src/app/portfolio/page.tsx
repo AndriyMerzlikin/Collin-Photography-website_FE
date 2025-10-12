@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 import GalleryList from '@/components/GalleryList/GalleryList';
 import Typography from '@/components/general/Typography/Typography';
 import CategorySelect from '@/components/CategorySelect/CategorySelect';
-import { GalleryCategoryAll } from '@/constants/galleryList';
+import { GalleryCategoryAll } from '@/types/galleryTypes';
 
 const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] =
