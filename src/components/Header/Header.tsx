@@ -9,7 +9,7 @@ import { ROUTES } from '@/constants/routes';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import Logo from '@/components/general/Logo/Logo';
-import {useCart} from "@/context/cartContext";
+import { useCart } from '@/context/cartContext';
 
 const NAV_LINKS = [
   { href: ROUTES.HOME, label: 'Home' },
@@ -61,23 +61,23 @@ const Header = () => {
       >
         {NAV_LINKS.map(({ href, label }) => {
           const isCart = label === 'Cart';
-          return(
-              <Link
-                  key={label}
-                  href={href}
-                  onClick={handleMenuClose}
-                  className={clsx(styles.navItem, {
-                    [styles.active]: pathname === href,
-                  })}
-              >
-                <Typography variant="body-large">
-                  {label}
-                  {isCart && cartItemCount > 0 && (
-                      <span className={styles.cartBadge}>{cartItemCount}</span>
-                  )}
-                </Typography>
-              </Link>
-          )
+          return (
+            <Link
+              key={label}
+              href={href}
+              onClick={handleMenuClose}
+              className={clsx(styles.navItem, {
+                [styles.active]: pathname === href,
+              })}
+            >
+              <Typography variant="body-large">
+                {label}
+                {isCart && cartItemCount > 0 && (
+                  <span className={styles.cartBadge}>{cartItemCount}</span>
+                )}
+              </Typography>
+            </Link>
+          );
         })}
       </nav>
 

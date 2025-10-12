@@ -2,6 +2,8 @@ import styles from './page.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import clsx from 'clsx';
 import GalleryList from '@/components/GalleryList/GalleryList';
+import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
           </Typography>
           <h2 className={styles.heroSubTitle}>is my passion</h2>
           <p className={styles.heroText}>
-            Young photographer, passionate about animals and plants
+            Young photographer, passionate about animals and nature
           </p>
         </div>
       </section>
@@ -41,7 +43,9 @@ export default function Home() {
       >
         <Typography variant="h3">gallery</Typography>
         <GalleryList category="all" />
-        <button className={styles.galleryButton}>more photos</button>
+        <Link href={ROUTES.PORTFOLIO} className={styles.galleryButton}>
+          more photos
+        </Link>
       </section>
       <section className={clsx(styles.sectionContentBox, styles.newsContainer)}>
         <Typography variant="h3">news</Typography>
