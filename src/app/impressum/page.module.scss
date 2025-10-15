@@ -1,0 +1,56 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 50px;
+  margin-top: 100px;
+  width: 100vw;
+  background-color: $secondary-low;
+
+  .title {
+    text-transform: uppercase;
+    color: $primary-olive;
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 550px) {
+    padding: 100px 30px;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .title2 {
+    text-transform: uppercase;
+    color: $primary-olive;
+    margin-bottom: $paragraph-spacing-l;
+  }
+}
+
+.subTitle {
+  text-transform: uppercase;
+  color: $primary-olive;
+  margin-bottom: $paragraph-spacing-l;
+}
+
+.list {
+  list-style-type: disc;
+  padding-left: $paragraph-spacing-xxl;
+  margin-bottom: $paragraph-spacing-l;
+
+  li {
+    color: $primary-low;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -58,6 +58,19 @@ const Footer = () => {
                 his lens.
               </Typography>
             </div>
+            <div className={styles.rulesBox}>
+              <Link href={ROUTES.IMPRESSUM}>
+                <Typography>Impressum</Typography>
+              </Link>
+              <hr />
+              <Link href={ROUTES.DATENSCHUTZ}>
+                <Typography>Datenschutzerklärung</Typography>
+              </Link>
+              <hr />
+              <Link href={ROUTES.AGB}>
+                <Typography>AGB</Typography>
+              </Link>
+            </div>
           </div>
           <div className={styles.signBox}>
             <Logo />

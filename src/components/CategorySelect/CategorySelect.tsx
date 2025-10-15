@@ -3,13 +3,13 @@
 import { Listbox } from '@headlessui/react';
 import { FiChevronDown } from 'react-icons/fi';
 import styles from './CategorySelect.module.scss';
-import { GalleryCategoryAll } from '@/constants/galleryList';
+import { GalleryCategoryAll } from '@/types/galleryTypes';
 
 const options: { value: GalleryCategoryAll; label: string }[] = [
   { value: 'all', label: 'all categories' },
   { value: 'birds', label: 'birds' },
-  { value: 'animals', label: 'animals' },
-  { value: 'nature', label: 'nature' },
+  { value: 'landscape', label: 'landscape' },
+  { value: 'mammals', label: 'mammals' },
 ];
 
 type Props = {
