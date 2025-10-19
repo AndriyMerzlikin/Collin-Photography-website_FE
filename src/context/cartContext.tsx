@@ -38,9 +38,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
       if (existing && item.type === 'frame') {
         return prev.map((i) =>
-            i._id === item._id
-                ? { ...i, quantity: i.quantity + item.quantity }
-                : i
+          i._id === item._id
+            ? { ...i, quantity: i.quantity + item.quantity }
+            : i,
         );
       }
 
@@ -50,21 +50,21 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const increaseQuantity = (_id: string) => {
     setCart((prev) =>
-        prev.map((item) =>
-            item._id === _id && item.type === 'frame'
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-        )
+      prev.map((item) =>
+        item._id === _id && item.type === 'frame'
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      ),
     );
   };
 
   const decreaseQuantity = (_id: string) => {
     setCart((prev) =>
-        prev.map((item) =>
-            item._id === _id && item.type === 'frame' && item.quantity > 1
-                ? { ...item, quantity: item.quantity - 1 }
-                : item
-        )
+      prev.map((item) =>
+        item._id === _id && item.type === 'frame' && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
+      ),
     );
   };
 
@@ -75,18 +75,18 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const clearCart = () => setCart([]);
 
   return (
-      <CartContext.Provider
-          value={{
-            cart,
-            addToCart,
-            removeFromCart,
-            clearCart,
-            increaseQuantity,
-            decreaseQuantity,
-          }}
-      >
-        {children}
-      </CartContext.Provider>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseQuantity,
+        decreaseQuantity,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };
 

@@ -70,6 +70,10 @@
   }
 }
 
+.onSaleText {
+  color: $red-error !important;
+}
+
 .quantityBox {
   display: flex;
   flex-direction: column;
@@ -132,6 +136,11 @@
     background-color: $primary-low;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
   }
+
+  &:disabled {
+    background-color: $secondary-medium;
+    cursor: not-allowed;
+  }
 }
 
 .descriptionBox {
@@ -168,6 +177,8 @@
 .thumbBox {
   border: 2px solid transparent;
   border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   cursor: pointer;
   transition: border 0.2s ease-in-out;
@@ -183,6 +194,7 @@
 
 .thumbImage {
   object-fit: cover;
+  object-position: center 30%;
   width: 100%;
   height: 100%;
   border-radius: 6px;

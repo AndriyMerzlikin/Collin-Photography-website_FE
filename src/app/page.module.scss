@@ -149,5 +149,34 @@
   h3 {
     text-transform: uppercase;
     color: $primary-olive;
+    margin-bottom: $paragraph-spacing-xl;
   }
+}
+
+.calendarContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: $paragraph-spacing-3x;
+
+  @media (max-width: 550px) {
+    justify-content: center;
+  }
+}
+
+.calendarImgWrapper {
+  margin-bottom: $paragraph-spacing-l;
+}
+
+.calendarImage {
+  border-radius: $border-radius-s;
+  object-fit: cover;
+  max-width: 250px;
+  height: auto;
+}
+
+.newImage {
+  position: absolute;
+  top: -30px;
+  left: 170px;
 }

@@ -55,7 +55,7 @@ const CalendarItemPage = () => {
     return (
       <div className={styles.container}>
         <BackLink href={ROUTES.FRAME} title="Back to Calendars" />
-        <Typography variant="h3">Calendar not found 😢</Typography>
+        <Typography variant="h3">Loading Calendar...</Typography>
       </div>
     );
   }
@@ -66,7 +66,7 @@ const CalendarItemPage = () => {
     if (counter > 1) setCounter((prev) => prev - 1);
   };
 
-  const totalPrice = (item.price * counter).toFixed(2);
+  // const totalPrice = (item.price * counter).toFixed(2);
 
   const handleAddToCart = () => {
     addToCart({
@@ -75,7 +75,7 @@ const CalendarItemPage = () => {
       price: item.price,
       previewImageUrl: item.imgUrl[0],
       quantity: counter,
-      type: "frame",
+      type: 'frame',
     });
 
     toast.success(`${item.title} added to cart 🛒`, {
@@ -153,7 +153,11 @@ const CalendarItemPage = () => {
         </div>
         <div className={styles.infoContainer}>
           <Typography variant="h2">{item.title}</Typography>
-          <p className={styles.price}>€{totalPrice}</p>
+          <Typography variant="h2" className={styles.onSaleText}>
+            On sale soon!
+          </Typography>
+          {/*<p className={styles.price}>€{totalPrice}</p>*/}
+          <p className={styles.price}>€0.00</p>
           <div className={styles.quantityBox}>
             <Typography variant="body-small" className={styles.quantityText}>
               Quantity
@@ -166,13 +170,18 @@ const CalendarItemPage = () => {
               >
                 <FiMinus />
               </button>
-              <div className={styles.counterText}>{counter}</div>
+              {/*<div className={styles.counterText}>{counter}</div>*/}
+              <div className={styles.counterText}>0</div>
               <button className={styles.counterBtn} onClick={handleIncrease}>
                 <FiPlus />
               </button>
             </div>
           </div>
-          <button className={styles.cartButton} onClick={handleAddToCart}>
+          <button
+            className={styles.cartButton}
+            onClick={handleAddToCart}
+            disabled
+          >
             Add to cart
           </button>
           <div className={styles.descriptionBox}>

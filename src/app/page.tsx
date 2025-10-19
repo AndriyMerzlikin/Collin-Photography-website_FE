@@ -1,11 +1,23 @@
+'use client';
+
 import styles from './page.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import clsx from 'clsx';
 import GalleryList from '@/components/GalleryList/GalleryList';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { CalendarsDataItem } from '@/types/calendarsDataTypes';
+import { calendarsData } from '@/constants/calendarsData';
 
 export default function Home() {
+  const [frameList, setFrameList] = useState<CalendarsDataItem[]>([]);
+
+  useEffect(() => {
+    setFrameList(calendarsData);
+  }, []);
+
   return (
     <div className={styles.container}>
       <section className={styles.heroSection}>
@@ -47,8 +59,37 @@ export default function Home() {
           more photos
         </Link>
       </section>
+
       <section className={clsx(styles.sectionContentBox, styles.newsContainer)}>
         <Typography variant="h3">news</Typography>
+        {frameList.map((item) => (
+          <div className={styles.calendarContainer} key={item._id}>
+            <Link
+              href={`${ROUTES.FRAME}/${item._id}`}
+              className={styles.calendarBox}
+            >
+              <div className={styles.calendarImgWrapper}>
+                <Image
+                  src={item.imgUrl[0]}
+                  alt={item.title}
+                  width={300}
+                  height={200}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className={styles.calendarImage}
+                />
+              </div>
+              <Typography variant="h4">{item.title}</Typography>
+            </Link>
+            <Image
+              src="/New.png"
+              alt="new"
+              width={150}
+              height={150}
+              className={styles.newImage}
+            />
+          </div>
+        ))}
       </section>
     </div>
   );
