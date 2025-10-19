@@ -8,9 +8,17 @@ import BackLink from '@/components/general/BackLink/BackLink';
 import { ROUTES } from '@/constants/routes';
 import { MdDelete } from 'react-icons/md';
 import clsx from 'clsx';
+import { FiMinus, FiPlus } from 'react-icons/fi';
+import React from 'react';
 
 const CartPage = () => {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -19,6 +27,7 @@ const CartPage = () => {
       <Typography variant="h2" className={styles.title}>
         Shopping Cart
       </Typography>
+
       {cart.length === 0 ? (
         <>
           <p>Your cart is empty</p>
@@ -35,10 +44,31 @@ const CartPage = () => {
                   width={100}
                   height={100}
                 />
+
                 <div className={styles.cartItemTextBox}>
                   <Typography variant="h4" className={styles.cartItemTitle}>
                     "{item.title}"
                   </Typography>
+
+                  {item.type === 'frame' && (
+                    <div className={styles.counterBox}>
+                      <button
+                        onClick={() => decreaseQuantity(item._id)}
+                        disabled={item.quantity <= 1}
+                        className={styles.counterBtn}
+                      >
+                        <FiMinus />
+                      </button>
+                      <div className={styles.counterText}>{item.quantity}</div>
+                      <button
+                        onClick={() => increaseQuantity(item._id)}
+                        className={styles.counterBtn}
+                      >
+                        <FiPlus />
+                      </button>
+                    </div>
+                  )}
+
                   <div className={styles.cartItemPriceBox}>
                     <button
                       className={styles.removeButton}
@@ -47,16 +77,18 @@ const CartPage = () => {
                       <MdDelete />
                     </button>
                     <Typography variant="body-large">
-                      €{item.price.toFixed(2)}
+                      €{(item.price * item.quantity).toFixed(2)}
                     </Typography>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
+
           <Typography variant="h2" className={styles.totalText}>
             Total: €{total.toFixed(2)}
           </Typography>
+
           <div className={styles.submitButtonsBox}>
             <button className={styles.checkoutButton}>Order</button>
             <button

@@ -1,0 +1,119 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
+  padding: $paragraph-spacing-4x;
+  background-color: $secondary-low;
+
+  h1 {
+    margin-bottom: $paragraph-spacing-3x;
+    color: $primary-olive;
+  }
+
+  @media (max-width: 550px) {
+    padding: $paragraph-spacing-3x;
+  }
+}
+
+.listContainer {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  padding: 10px;
+
+  @media (max-width: 990px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $secondary-low;
+  border-radius: $border-radius-m;
+  border: $border-s solid $secondary-black;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.image {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.textContainer {
+  padding: $paragraph-spacing-m;
+
+  .price {
+    color: $primary-low;
+    text-shadow: 2px 2px 4px rgba($primary-medium, 0.8);
+  }
+}
+
+//Slider
+
+.sliderContainer {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto 40px;
+}
+
+.thumbWrapper {
+  padding: 5px;
+}
+
+.thumbBox {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border 0.2s ease-in-out;
+}
+
+.thumbBox:hover {
+  border-color: $primary-medium; // або будь-який колір
+}
+
+.activeThumb {
+  border-color: $primary-olive; // підсвічується активне зображення
+}
+
+.thumbImage {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}

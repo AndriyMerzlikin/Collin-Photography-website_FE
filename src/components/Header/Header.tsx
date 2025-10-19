@@ -13,7 +13,7 @@ import { useCart } from '@/context/cartContext';
 
 const NAV_LINKS = [
   { href: ROUTES.HOME, label: 'Home' },
-  { href: ROUTES.PRINTS, label: 'Prints' },
+  { href: ROUTES.PRINTS, label: 'Shop' },
   { href: ROUTES.PORTFOLIO, label: 'Portfolio' },
   { href: ROUTES.ABOUT, label: 'About' },
   { href: ROUTES.CONTACTS, label: 'Contacts' },

@@ -76,6 +76,7 @@ const GalleryItemPage = () => {
                 price: item.price,
                 previewImageUrl: item.previewImageUrl,
                 quantity: 1,
+                type: 'digital',
               })
             }
           >
