@@ -12,7 +12,7 @@ const About = () => {
       <div className={styles.textRow}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/aboutMainImage.jpg"
+            src="/aboutMainImage2.jpg"
             alt="About Me Photo"
             width={400}
             height={400}
@@ -23,15 +23,14 @@ const About = () => {
         </div>
 
         <Typography className={styles.textLeft}>
-          I started my Journey in Photography in August 2024. I am currently
-          based in Austria, and I am fortunate enough to be surrounded by plenty
-          of nature and wildlife. Additionally, I am close to beautiful nature
-          reserves where I can explore and capture the wonders of the natural
-          world. My initial inspiration came from a photographer named Robert
-          Marc Lehmann. A few months later, I discovered my mom's
-          twenty-year-old camera lying around. It was that moment when I began
-          taking pictures. I quickly developed a passion for photography,
-          leading me to purchase my first camera just a few weeks later.
+          I started my photography journey in August 2024. Based in Austria, I
+          am lucky to be surrounded by beautiful nature and wildlife reserves,
+          which are perfect for my work. My initial inspiration came from the
+          photographer Robert Marc Lehmann. A few months after discovering his
+          work, I found my mom's twenty-year-old camera lying around—and that
+          was the exact moment I started taking pictures. I quickly developed a
+          real passion for it, which led me to buy my first own camera just a
+          few weeks later.
         </Typography>
       </div>
       <div className={styles.textRowReverse}>
@@ -46,15 +45,13 @@ const About = () => {
           />
         </div>
         <Typography className={styles.textRight}>
-          Now, almost a year into my photography journey, I have dedicated a
-          significant amount of time capturing the wildlife of Austria.
-          Photography provides me a sense of freedom and allows me to be present
-          in the moment. It is a powerful outlet for my creativity, as I strive
-          to capture unique pictures and moments. I thoroughly enjoy learning
-          new techniques and embracing the present. While I acknowledge that I
-          am still a relatively new photographer, I am very pleased with my
-          progress this far. I'm looking forward to continuing my photography
-          journey and seeing what the future holds.
+          Now, at 16 years old and almost two years into my journey, I dedicate
+          a lot of my time to capturing wildlife. For me, photography provides a
+          sense of freedom and allows me to be fully present in the moment. It’s
+          a great outlet for my creativity, and I always strive to capture
+          unique shots. I am really proud of my progress so far, and I’m always
+          looking to grow. I’m excited to keep learning, improving, and seeing
+          where this journey takes me.
         </Typography>
       </div>
     </div>

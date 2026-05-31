@@ -22,6 +22,11 @@
   }
 }
 
+.socialsBox {
+  display: flex;
+  gap: $paragraph-spacing-m;
+}
+
 .socialButton {
   display: flex;
   justify-content: center;

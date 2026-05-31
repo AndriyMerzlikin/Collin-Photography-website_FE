@@ -4,10 +4,13 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import Typography from '@/components/general/Typography/Typography';
 import { FiInstagram } from 'react-icons/fi';
+import { PiTiktokLogo } from 'react-icons/pi';
+import { FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 import Logo from '@/components/general/Logo/Logo';
 import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
+import { SOCIAL_MEDIA } from '@/constants/socialMediaLinks';
 
 const Footer = () => {
   const pathname = usePathname();
@@ -24,14 +27,34 @@ const Footer = () => {
               </Typography>
               <Typography className={styles.contactText}>Email:</Typography>
               <Typography className={styles.contactText}>
-                collin.r.photography@gmail.com
+                {SOCIAL_MEDIA.EMAIL}
               </Typography>
-              <Link
-                href="https://www.instagram.com/collinruehrer?igsh=Mnc3aHNnOGc4ZWt4"
-                className={styles.socialButton}
-              >
-                <FiInstagram size={25} />
-              </Link>
+              <div className={styles.socialsBox}>
+                <Link
+                  href={SOCIAL_MEDIA.INSTAGRAM}
+                  className={styles.socialButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FiInstagram size={25} />
+                </Link>
+                <Link
+                  href={SOCIAL_MEDIA.TIK_TOK}
+                  className={styles.socialButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <PiTiktokLogo size={25} />
+                </Link>
+                <Link
+                  href={SOCIAL_MEDIA.YOUTUBE}
+                  className={styles.socialButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaYoutube size={25} />
+                </Link>
+              </div>
             </div>
             <div>
               <Typography
@@ -44,15 +67,15 @@ const Footer = () => {
                 purchase his first calendar
               </Typography>
               <Typography className={styles.descriptionText}>
-                At just 15 years old,{' '}
+                At just 16 years old,{' '}
                 <span className={styles.descriptionSpan}>Collin</span> is a
-                rising nature and wildlife photographer with a deep love for the
-                outdoors. With only one year of experience, he captures
-                breathtaking moments in nature, from majestic wildlife to serene
-                landscapes. Now, you can support his journey by purchasing his
-                very first nature photography calendar! Featuring his best
-                shots, this calendar brings the beauty of the natural world to
-                your home. Every purchase helps{' '}
+                rising wildlife photographer with a deep love for the outdoors.
+                With only one year of experience, he captures breathtaking
+                moments in nature, from majestic wildlife to serene landscapes.
+                Now, you can support his journey by purchasing his very first
+                nature photography calendar! Featuring his best shots, this
+                calendar brings the beauty of the natural world to your home.
+                Every purchase helps{' '}
                 <span className={styles.descriptionSpan}>Collin</span> continue
                 exploring, learning, and sharing his passion for nature through
                 his lens.

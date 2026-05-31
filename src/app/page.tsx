@@ -36,8 +36,17 @@ export default function Home() {
         className={clsx(styles.sectionContentBox, styles.aboutContainer)}
       >
         <Typography variant="h3">
-          young nature and wildlife photographer – Collin
+          young wildlife photographer – Collin
         </Typography>
+        <div className={styles.aboutImageWrapper}>
+          <Image
+            src="/aboutMainImage2.jpg"
+            alt="Collin"
+            width={180}
+            height={180}
+            className={styles.aboutImage}
+          />
+        </div>
         <Typography variant="body-large">
           <span>Collin</span> began his photography journey in August 2024,
           inspired by renowned wildlife photographer Robert Marc Lehmann. Living
@@ -49,6 +58,9 @@ export default function Home() {
           way for him to stay present, and he's excited to keep growing on this
           path.
         </Typography>
+        <Link href={ROUTES.ABOUT} className={styles.galleryButton}>
+          more about me
+        </Link>
       </section>
       <section
         className={clsx(styles.sectionContentBox, styles.galleryContainer)}

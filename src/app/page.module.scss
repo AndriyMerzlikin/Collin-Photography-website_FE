@@ -94,9 +94,22 @@
     color: $primary-olive;
   }
 
+  .aboutImageWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .aboutImage {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 180px;
+    height: 180px;
+  }
+
   p {
     text-align: center;
     max-width: 800px;
+    margin-bottom: $paragraph-spacing-l;
   }
 
   span {
