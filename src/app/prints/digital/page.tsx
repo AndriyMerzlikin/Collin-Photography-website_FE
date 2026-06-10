@@ -38,7 +38,7 @@ const DigitalPage = () => {
           >
             <div className={styles.imageWrapper}>
               <Image
-                src={item.previewImageUrl}
+                src={item.previewUrl}
                 alt={item.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
