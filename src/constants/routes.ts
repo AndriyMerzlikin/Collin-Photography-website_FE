@@ -10,4 +10,5 @@ export const ROUTES = {
   IMPRESSUM: '/impressum',
   DATENSCHUTZ: '/datenschutzerklaerung',
   AGB: '/agb',
+  ADMIN: '/admin',
 };

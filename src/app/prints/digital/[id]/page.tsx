@@ -46,7 +46,7 @@ const GalleryItemPage = () => {
       <div className={styles.contentBox}>
         <div className={styles.imageWrapper}>
           <Image
-            src={item.previewImageUrl}
+            src={item.previewUrl}
             alt={item.title}
             fill
             priority
@@ -74,7 +74,7 @@ const GalleryItemPage = () => {
                 _id: String(item._id),
                 title: item.title,
                 price: item.price,
-                previewImageUrl: item.previewImageUrl,
+                previewImageUrl: item.previewUrl,
                 quantity: 1,
                 type: 'digital',
               })

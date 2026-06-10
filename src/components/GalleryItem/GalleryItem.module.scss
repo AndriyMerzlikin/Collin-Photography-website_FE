@@ -1,0 +1,72 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.itemBox {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid $secondary-medium;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba($secondary-black, 0.2);
+    border-color: $primary-medium;
+  }
+
+  &:hover .iconOverlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.iconOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  color: $secondary-white;
+  font-size: 2rem;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteButton {
+  margin: $paragraph-spacing-m;
+  padding: $paragraph-spacing-s;
+  color: $red-error;
+}
+
+.editButton {
+  margin: $paragraph-spacing-m;
+  padding: $paragraph-spacing-s;
+  color: $primary-low;
+}

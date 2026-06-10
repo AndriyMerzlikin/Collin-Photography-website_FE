@@ -16,6 +16,10 @@
   align-items: center;
   min-width: 200px;
   cursor: pointer;
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
 }
 
 .icon {
