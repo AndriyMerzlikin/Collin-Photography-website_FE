@@ -3,18 +3,7 @@ import { connectDB } from '@/lib/mongodb';
 import cloudinary from '@/lib/cloudinary';
 import { Photo } from '@/models/Photo';
 import { createSlug } from '@/lib/slug';
-
-// GET ALL PHOTOS
-
-// export async function GET() {
-//     await connectDB();
-//
-//     const photos = await Photo.find().sort({
-//         createdAt: -1,
-//     });
-//
-//     return NextResponse.json(photos);
-// }
+import type { UploadApiResponse } from 'cloudinary';
 
 export async function GET() {
   await connectDB();
@@ -82,19 +71,23 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(bytes);
 
     // 2. Upload to Cloudinary
-    const uploadResult = await new Promise<any>((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        {
-          folder: 'photos',
-        },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        },
-      );
+    const uploadResult = await new Promise<UploadApiResponse>(
+      (resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: 'photos' },
+          (error, result) => {
+            if (error || !result) {
+              reject(error || new Error('No upload result from Cloudinary'));
+              return;
+            }
 
-      stream.end(buffer);
-    });
+            resolve(result);
+          },
+        );
+
+        stream.end(buffer);
+      },
+    );
 
     // 3. Generate slug
     const slug = createSlug(title);
