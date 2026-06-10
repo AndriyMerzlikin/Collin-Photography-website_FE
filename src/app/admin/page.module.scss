@@ -1,0 +1,39 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  margin-top: 100px;
+  width: 100vw;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $paragraph-spacing-l;
+  padding: 50px;
+  background-color: $secondary-low;
+
+  h3 {
+    text-transform: uppercase;
+    color: $primary-olive;
+  }
+}
+
+.textInfo {
+  color: $secondary-medium;
+}
+
+.button {
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-m;
+  background-color: $primary-medium;
+  color: $secondary-white;
+  transition: background-color 0.3s ease;
+  max-width: 200px;
+
+  &:hover {
+    background-color: $primary-low;
+  }
+}

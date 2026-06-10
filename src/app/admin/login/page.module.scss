@@ -1,0 +1,33 @@
+@use 'src/theme/colors' as *;
+@use 'src/theme/typography' as *;
+
+.container {
+  margin-top: 100px;
+  padding: $paragraph-spacing-xxl;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $paragraph-spacing-l;
+}
+
+.formInput {
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  border: $border-s solid $primary-high;
+  border-radius: $border-radius-s;
+}
+
+.button {
+  padding: $paragraph-spacing-l $paragraph-spacing-xl;
+  text-transform: uppercase;
+  border: none;
+  border-radius: $border-radius-m;
+  background-color: $primary-medium;
+  color: $secondary-white;
+  transition: background-color 0.3s ease;
+  max-width: 200px;
+
+  &:hover {
+    background-color: $primary-low;
+  }
+}

@@ -1,3 +1,5 @@
+// api/apiClient.ts
+
 import { BASE_URL } from '@/constants/urls';
 
 interface FetchOptions extends RequestInit {
@@ -11,9 +13,9 @@ export async function apiFetch<T>(
   const url = new URL(`${BASE_URL}${endpoint}`);
 
   if (queryParams) {
-    Object.keys(queryParams).forEach((key) =>
-      url.searchParams.append(key, queryParams[key]),
-    );
+    Object.entries(queryParams).forEach(([key, value]) => {
+      url.searchParams.append(key, value);
+    });
   }
 
   const response = await fetch(url.toString(), {
@@ -26,6 +28,12 @@ export async function apiFetch<T>(
 
   if (!response.ok) {
     throw new Error(`API error: ${response.status}`);
+  }
+
+  const contentType = response.headers.get('content-type');
+
+  if (!contentType?.includes('application/json')) {
+    return {} as T;
   }
 
   return response.json();

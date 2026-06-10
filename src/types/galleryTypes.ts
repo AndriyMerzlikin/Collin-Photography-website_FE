@@ -5,11 +5,10 @@ export type GalleryCategoryAll = GalleryCategory | 'all';
 export type GalleryItem = {
   _id: string;
   title: string;
-  description: string;
+  description?: string;
   category: GalleryCategory;
-  digitalImage: boolean;
-  frameImage: boolean;
   price: number;
-  originalImageUrl: string;
-  previewImageUrl: string;
+  slug: string;
+  thumbnailUrl: string;
+  previewUrl: string;
 };
