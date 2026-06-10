@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/mongodb';
 import cloudinary from '@/lib/cloudinary';
 import { Photo } from '@/models/Photo';
+import type { UploadApiResponse } from 'cloudinary';
 
 // Get one by id
 export async function GET(
@@ -80,19 +81,23 @@ export async function PUT(
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      const uploadResult = await new Promise<any>((resolve, reject) => {
-        const stream = cloudinary.uploader.upload_stream(
-          {
-            folder: 'photos',
-          },
-          (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-          },
-        );
+      const uploadResult = await new Promise<UploadApiResponse>(
+        (resolve, reject) => {
+          const stream = cloudinary.uploader.upload_stream(
+            { folder: 'photos' },
+            (error, result) => {
+              if (error || !result) {
+                reject(error || new Error('No upload result from Cloudinary'));
+                return;
+              }
 
-        stream.end(buffer);
-      });
+              resolve(result);
+            },
+          );
+
+          stream.end(buffer);
+        },
+      );
 
       cloudinaryPublicId = uploadResult.public_id;
     }
