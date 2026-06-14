@@ -3,7 +3,10 @@ import { connectDB } from '@/lib/mongodb';
 import cloudinary from '@/lib/cloudinary';
 import { Photo } from '@/models/Photo';
 import { createSlug } from '@/lib/slug';
-import type { UploadApiResponse } from 'cloudinary';
+
+import { uploadToR2 } from '@/lib/r2-upload';
+import { createPreviewBuffer } from '@/lib/resize-preview';
+import { uploadPreviewToCloudinary } from '@/lib/upload-preview';
 
 export async function GET() {
   await connectDB();
@@ -46,6 +49,71 @@ export async function GET() {
 }
 // UPLOAD PHOTO TO GALLERY
 
+// export async function POST(req: Request) {
+//   try {
+//     await connectDB();
+//
+//     const formData = await req.formData();
+//
+//     const file = formData.get('file') as File;
+//
+//     const title = formData.get('title') as string;
+//     const description = formData.get('description') as string;
+//     const category = formData.get('category') as string;
+//     const price = Number(formData.get('price'));
+//
+//     if (!file || !title || !category || Number.isNaN(price)) {
+//       return NextResponse.json(
+//         { error: 'Missing required fields' },
+//         { status: 400 },
+//       );
+//     }
+//
+//     // 1. File → Buffer
+//     const bytes = await file.arrayBuffer();
+//     const buffer = Buffer.from(bytes);
+//
+//     // 2. Upload to Cloudinary
+//     const uploadResult = await new Promise<UploadApiResponse>(
+//       (resolve, reject) => {
+//         const stream = cloudinary.uploader.upload_stream(
+//           { folder: 'photos' },
+//           (error, result) => {
+//             if (error || !result) {
+//               reject(error || new Error('No upload result from Cloudinary'));
+//               return;
+//             }
+//
+//             resolve(result);
+//           },
+//         );
+//
+//         stream.end(buffer);
+//       },
+//     );
+//
+//     // 3. Generate slug
+//     const slug = createSlug(title);
+//
+//     // 4. Save to MongoDB
+//     const photo = await Photo.create({
+//       title,
+//       description,
+//       category,
+//       price,
+//       cloudinaryPublicId: uploadResult.public_id,
+//       slug,
+//     });
+//
+//     // 5. Return result
+//     return NextResponse.json(photo, { status: 201 });
+//   } catch (error) {
+//     console.error(error);
+//
+//     return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
+//   }
+// }
+
 export async function POST(req: Request) {
   try {
     await connectDB();
@@ -53,60 +121,46 @@ export async function POST(req: Request) {
     const formData = await req.formData();
 
     const file = formData.get('file') as File;
-
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const category = formData.get('category') as string;
     const price = Number(formData.get('price'));
 
     if (!file || !title || !category || Number.isNaN(price)) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    // 1. File → Buffer
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // 2. Upload to Cloudinary
-    const uploadResult = await new Promise<UploadApiResponse>(
-      (resolve, reject) => {
-        const stream = cloudinary.uploader.upload_stream(
-          { folder: 'photos' },
-          (error, result) => {
-            if (error || !result) {
-              reject(error || new Error('No upload result from Cloudinary'));
-              return;
-            }
-
-            resolve(result);
-          },
-        );
-
-        stream.end(buffer);
-      },
-    );
-
-    // 3. Generate slug
     const slug = createSlug(title);
 
-    // 4. Save to MongoDB
+    // 🟢 STEP 1 — upload ORIGINAL to R2
+    const r2Key = `photos/${Date.now()}-${file.name}`;
+    const originalUrl = await uploadToR2(file, r2Key);
+
+    // 🟢 STEP 2 — create preview buffer
+    const previewBuffer = await createPreviewBuffer(file);
+
+    // 🟢 STEP 3 — upload preview to Cloudinary
+    const cloudinaryResult = await uploadPreviewToCloudinary(previewBuffer);
+
+    // 🟢 STEP 4 — save DB
     const photo = await Photo.create({
       title,
       description,
       category,
       price,
-      cloudinaryPublicId: uploadResult.public_id,
       slug,
+
+      // preview (Cloudinary)
+      cloudinaryPublicId: cloudinaryResult.public_id,
+
+      // original (R2)
+      originalUrl,
+      r2Key,
     });
 
-    // 5. Return result
     return NextResponse.json(photo, { status: 201 });
   } catch (error) {
     console.error(error);
-
     return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
   }
 }

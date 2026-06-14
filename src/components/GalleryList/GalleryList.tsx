@@ -17,9 +17,10 @@ import { deletePhoto, fetchAllGalleryItems } from '@/api/galleryApi';
 
 type Props = {
   category: GalleryCategoryAll;
+  refreshKey?: number;
 };
 
-const GalleryList = ({ category }: Props) => {
+const GalleryList = ({ category, refreshKey }: Props) => {
   const [galleryList, setGalleryList] = useState<GalleryItemType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,8 +29,9 @@ const GalleryList = ({ category }: Props) => {
   useEffect(() => {
     const loadPhotos = async () => {
       try {
-        const data = await fetchAllGalleryItems();
+        setLoading(true);
 
+        const data = await fetchAllGalleryItems();
         setGalleryList(data);
       } catch (error) {
         console.error(error);
@@ -40,7 +42,7 @@ const GalleryList = ({ category }: Props) => {
     };
 
     loadPhotos();
-  }, []);
+  }, [refreshKey]); // 🔥 ключовий момент
 
   const handleDelete = async (id: string) => {
     try {
@@ -53,7 +55,6 @@ const GalleryList = ({ category }: Props) => {
       });
     } catch (error) {
       console.error(error);
-
       toast.error('Error removing photo!');
     }
   };

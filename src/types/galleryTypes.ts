@@ -11,4 +11,6 @@ export type GalleryItem = {
   slug: string;
   thumbnailUrl: string;
   previewUrl: string;
+  r2Key?: string;
+  originalUrl?: string;
 };
