@@ -5,9 +5,12 @@ import Typography from '@/components/general/Typography/Typography';
 import PhotoUploadForm from '@/components/PhotoUploadForm/PhotoUploadForm';
 import { useRouter } from 'next/navigation';
 import GalleryList from '@/components/GalleryList/GalleryList';
+import { useState } from 'react';
 
 export default function AdminPage() {
   const router = useRouter();
+
+  const [refreshKey, setRefreshKey] = useState(0);
 
   async function logout() {
     await fetch('/api/logout', {
@@ -16,6 +19,10 @@ export default function AdminPage() {
 
     router.push('/admin/login');
   }
+
+  const handleRefresh = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
 
   return (
     <div className={styles.container}>
@@ -29,9 +36,10 @@ export default function AdminPage() {
         <button onClick={logout} className={styles.button}>
           Logout
         </button>
-        <PhotoUploadForm mode={'create'} />
 
-        <GalleryList category={'all'} />
+        <PhotoUploadForm mode="create" onSuccess={handleRefresh} />
+
+        <GalleryList category="all" refreshKey={refreshKey} />
       </div>
     </div>
   );

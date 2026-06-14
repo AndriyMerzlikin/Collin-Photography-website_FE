@@ -24,6 +24,16 @@ const PhotoSchema = new Schema(
       required: true,
     },
 
+    originalUrl: {
+      type: String,
+      required: true,
+    },
+
+    r2Key: {
+      type: String,
+      required: true,
+    },
+
     price: {
       type: Number,
       required: true,

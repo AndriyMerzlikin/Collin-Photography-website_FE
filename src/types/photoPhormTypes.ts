@@ -1,13 +1,5 @@
-import { GalleryCategory } from '@/types/galleryTypes';
+import { PhotoUploadFormValues } from '@/components/PhotoUploadForm/photoUploadFormSchema';
 
-export type PhotoFormData = {
-  title: string;
-  description: string;
-  category: GalleryCategory;
-  price: number;
-  file?: File;
-};
-
-export type PhotoFormInitialData = PhotoFormData & {
+export type PhotoFormInitialData = Omit<PhotoUploadFormValues, 'file'> & {
   previewUrl?: string;
 };

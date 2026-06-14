@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export const categories = ['landscape', 'birds', 'mammals'] as const;
+
 export const photoUploadFormSchema = z.object({
   title: z
     .string()
@@ -12,8 +14,10 @@ export const photoUploadFormSchema = z.object({
     .trim()
     .max(1000, "Can't be more than 1000 characters long"),
 
-  category: z.enum(['landscape', 'birds', 'mammals'], {
-    errorMap: () => ({ message: 'Please select a valid category' }),
+  category: z.enum(categories, {
+    errorMap: () => ({
+      message: 'Please select a valid category',
+    }),
   }),
 
   price: z.coerce.number().min(0, 'Price cannot be negative'),
@@ -23,12 +27,8 @@ export const photoUploadFormSchema = z.object({
     .optional()
     .refine((file) => {
       if (!file) return true;
-      return ['image/jpeg', 'image/png', 'image/webp'].includes(file.type);
-    }, 'Only JPG, PNG and WEBP are allowed')
-    .refine((file) => {
-      if (!file) return true;
-      return file.size <= 10 * 1024 * 1024;
-    }, 'Image size must be less than 10MB'),
+      return file.type.startsWith('image/');
+    }, 'Only images allowed'),
 });
 
-export type TPhotoUploadFormSchema = z.infer<typeof photoUploadFormSchema>;
+export type PhotoUploadFormValues = z.infer<typeof photoUploadFormSchema>;

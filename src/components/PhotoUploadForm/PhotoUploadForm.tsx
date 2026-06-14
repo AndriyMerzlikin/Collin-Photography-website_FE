@@ -5,12 +5,16 @@ import styles from './PhotoUploadForm.module.scss';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
+import Image from 'next/image';
 import GenericSelect, {
   SelectOption,
 } from '@/components/CategorySelect/GenericSelect';
 import { GalleryCategory } from '@/types/galleryTypes';
-import { photoUploadFormSchema } from './photoUploadFormSchema';
-import { PhotoFormData, PhotoFormInitialData } from '@/types/photoPhormTypes';
+import {
+  photoUploadFormSchema,
+  PhotoUploadFormValues,
+} from './photoUploadFormSchema';
+import { PhotoFormInitialData } from '@/types/photoPhormTypes';
 import { createPhoto, updatePhoto } from '@/api/galleryApi';
 
 const categoryOptions: SelectOption<GalleryCategory>[] = [
@@ -23,9 +27,10 @@ type Props = {
   mode: 'create' | 'edit';
   photoId?: string;
   initialData?: PhotoFormInitialData;
+  onSuccess?: () => void;
 };
 
-const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
+const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
   const [preview, setPreview] = useState<string | null>(
     initialData?.previewUrl ?? null,
   );
@@ -39,7 +44,7 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
     setValue,
     reset,
     formState: { errors, isValid },
-  } = useForm<PhotoFormData>({
+  } = useForm<PhotoUploadFormValues>({
     resolver: zodResolver(photoUploadFormSchema),
     mode: 'onTouched',
     defaultValues: {
@@ -63,7 +68,7 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
     setPreview(initialData.previewUrl ?? null);
   }, [initialData, reset]);
 
-  const onSubmit: SubmitHandler<PhotoFormData> = async (data) => {
+  const onSubmit: SubmitHandler<PhotoUploadFormValues> = async (data) => {
     setLoading(true);
 
     try {
@@ -81,10 +86,7 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
       if (mode === 'create') {
         await createPhoto(formData);
       } else {
-        if (!photoId) {
-          throw new Error('Photo id is missing');
-        }
-
+        if (!photoId) throw new Error('Photo id is missing');
         await updatePhoto(photoId, formData);
       }
 
@@ -92,10 +94,10 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
         mode === 'create'
           ? 'Photo uploaded successfully!'
           : 'Photo updated successfully!',
-        {
-          icon: '✅',
-        },
+        { icon: '✅' },
       );
+
+      onSuccess?.(); // 🔥 ОНОВЛЕННЯ ГАЛЕРЕЇ
 
       if (mode === 'create') {
         reset();
@@ -142,9 +144,7 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
         )}
 
         <input
-          {...register('price', {
-            valueAsNumber: true,
-          })}
+          {...register('price', { valueAsNumber: true })}
           type="number"
           placeholder="Price"
           className={styles.formInput}
@@ -176,7 +176,6 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
           accept="image/*"
           onChange={(e) => {
             const file = e.target.files?.[0];
-
             if (!file) return;
 
             setValue('file', file, {
@@ -193,7 +192,15 @@ const PhotoUploadForm = ({ mode, photoId, initialData }: Props) => {
         )}
 
         {preview && (
-          <img src={preview} alt="Preview" className={styles.previewImage} />
+          <div className={styles.previewWrapper}>
+            <Image
+              src={preview}
+              alt="Preview"
+              fill
+              className={styles.previewImage}
+              unoptimized
+            />
+          </div>
         )}
       </div>
 
