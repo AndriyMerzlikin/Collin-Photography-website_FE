@@ -53,7 +53,14 @@ export async function POST(req: Request) {
       cloudinaryPublicId,
     } = body;
 
-    if (!title || !category || !price || !r2Key || !cloudinaryPublicId) {
+    if (
+      !title ||
+      !category ||
+      price === undefined ||
+      price === null ||
+      !r2Key ||
+      !cloudinaryPublicId
+    ) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 

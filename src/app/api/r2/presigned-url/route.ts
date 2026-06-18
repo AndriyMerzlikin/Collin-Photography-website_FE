@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   });
 
   const uploadUrl = await getSignedUrl(r2, command, {
-    expiresIn: 300,
+    expiresIn: 600,
   });
 
   return NextResponse.json({

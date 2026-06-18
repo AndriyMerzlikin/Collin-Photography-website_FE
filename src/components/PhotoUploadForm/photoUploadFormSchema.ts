@@ -20,7 +20,18 @@ export const photoUploadFormSchema = z.object({
     }),
   }),
 
-  price: z.coerce.number().min(0, 'Price cannot be negative'),
+  price: z
+    .union([z.string(), z.number()])
+    .transform((val) => {
+      if (val === '' || val === null || val === undefined) return 0;
+      return Number(val);
+    })
+    .refine((val) => !isNaN(val), {
+      message: 'Invalid price',
+    })
+    .refine((val) => val >= 0, {
+      message: 'Price cannot be negative',
+    }),
 
   file: z
     .instanceof(File)
@@ -31,4 +42,5 @@ export const photoUploadFormSchema = z.object({
     }, 'Only images allowed'),
 });
 
-export type PhotoUploadFormValues = z.infer<typeof photoUploadFormSchema>;
+export type PhotoUploadFormInput = z.input<typeof photoUploadFormSchema>;
+export type PhotoUploadFormValues = z.output<typeof photoUploadFormSchema>;
