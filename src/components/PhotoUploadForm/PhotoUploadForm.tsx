@@ -17,6 +17,7 @@ import {
 import { PhotoFormInitialData } from '@/types/photoPhormTypes';
 import { uploadPhoto } from '@/lib/useUploadPhoto';
 import { createBrowserPreview } from '@/lib/create-browser-preview';
+import { updatePhoto } from '@/lib/updatePhoto';
 
 const categoryOptions: SelectOption<GalleryCategory>[] = [
   { value: 'birds', label: 'birds' },
@@ -31,7 +32,7 @@ type Props = {
   onSuccess?: () => void;
 };
 
-const PhotoUploadForm = ({ mode, initialData, onSuccess }: Props) => {
+const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
   const [preview, setPreview] = useState<string | null>(
     initialData?.previewUrl ?? null,
   );
@@ -73,40 +74,63 @@ const PhotoUploadForm = ({ mode, initialData, onSuccess }: Props) => {
     setLoading(true);
 
     try {
-      if (!data.file) {
-        toast.error('File is required');
+      if (mode === 'create') {
+        if (!data.file) {
+          toast.error('File is required');
+          return;
+        }
+
+        const originalFile = data.file;
+
+        const previewFile = await createBrowserPreview(data.file);
+
+        await uploadPhoto(originalFile, previewFile, {
+          title: data.title,
+          description: data.description,
+          category: data.category,
+          price: data.price,
+        });
+
+        toast.success('Photo uploaded successfully!', {
+          icon: '✅',
+        });
+
+        reset();
+        setPreview(null);
+
+        onSuccess?.();
+
         return;
       }
 
-      // 🟢 ORIGINAL file (для R2)
-      const originalFile = data.file;
+      // =========================
+      // EDIT MODE
+      // =========================
 
-      // 🟢 PREVIEW file (для Cloudinary)
-      const previewFile = await createBrowserPreview(data.file);
+      if (!photoId) {
+        throw new Error('Photo id missing');
+      }
 
-      await uploadPhoto(originalFile, previewFile, {
-        title: data.title,
-        description: data.description,
-        category: data.category,
-        price: data.price,
-      });
-
-      toast.success(
-        mode === 'create'
-          ? 'Photo uploaded successfully!'
-          : 'Photo updated successfully!',
-        { icon: '✅' },
+      await updatePhoto(
+        photoId,
+        {
+          title: data.title,
+          description: data.description,
+          category: data.category,
+          price: data.price,
+        },
+        data.file,
       );
 
-      onSuccess?.();
+      toast.success('Photo updated successfully!', {
+        icon: '✅',
+      });
 
-      if (mode === 'create') {
-        reset();
-        setPreview(null);
-      }
+      onSuccess?.();
     } catch (err) {
       console.error(err);
-      toast.error('Upload failed');
+
+      toast.error(mode === 'create' ? 'Upload failed' : 'Update failed');
     } finally {
       setLoading(false);
     }
