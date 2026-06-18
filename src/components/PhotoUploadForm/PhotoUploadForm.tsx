@@ -11,11 +11,14 @@ import GenericSelect, {
 } from '@/components/CategorySelect/GenericSelect';
 import { GalleryCategory } from '@/types/galleryTypes';
 import {
+  PhotoUploadFormInput,
   photoUploadFormSchema,
   PhotoUploadFormValues,
 } from './photoUploadFormSchema';
 import { PhotoFormInitialData } from '@/types/photoPhormTypes';
-import { createPhoto, updatePhoto } from '@/api/galleryApi';
+import { uploadPhoto } from '@/lib/useUploadPhoto';
+import { createBrowserPreview } from '@/lib/create-browser-preview';
+import { updatePhoto } from '@/lib/updatePhoto';
 
 const categoryOptions: SelectOption<GalleryCategory>[] = [
   { value: 'birds', label: 'birds' },
@@ -44,7 +47,7 @@ const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
     setValue,
     reset,
     formState: { errors, isValid },
-  } = useForm<PhotoUploadFormValues>({
+  } = useForm<PhotoUploadFormInput, unknown, PhotoUploadFormValues>({
     resolver: zodResolver(photoUploadFormSchema),
     mode: 'onTouched',
     defaultValues: {
@@ -72,48 +75,58 @@ const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
     setLoading(true);
 
     try {
-      const formData = new FormData();
-
-      formData.append('title', data.title);
-      formData.append('description', data.description);
-      formData.append('category', data.category);
-      formData.append('price', String(data.price));
-
-      if (data.file) {
-        formData.append('file', data.file);
-      }
-
       if (mode === 'create') {
-        await createPhoto(formData);
-      } else {
-        if (!photoId) throw new Error('Photo id is missing');
-        await updatePhoto(photoId, formData);
-      }
-
-      toast.success(
-        mode === 'create'
-          ? 'Photo uploaded successfully!'
-          : 'Photo updated successfully!',
-        { icon: '✅' },
-      );
-
-      onSuccess?.(); // 🔥 ОНОВЛЕННЯ ГАЛЕРЕЇ
-
-      if (mode === 'create') {
-        reset();
-
-        if (preview?.startsWith('blob:')) {
-          URL.revokeObjectURL(preview);
+        if (!data.file) {
+          toast.error('File is required');
+          return;
         }
 
+        const originalFile = data.file;
+        const previewFile = await createBrowserPreview(data.file);
+
+        await uploadPhoto(originalFile, previewFile, {
+          title: data.title,
+          description: data.description,
+          category: data.category,
+          price: data.price,
+        });
+
+        toast.success('Photo uploaded successfully!', { icon: '✅' });
+
+        reset();
         setPreview(null);
+        onSuccess?.();
+
+        return;
       }
+
+      // =========================
+      // EDIT MODE
+      // =========================
+
+      if (!photoId) {
+        throw new Error('Photo id missing');
+      }
+
+      const file = data.file; // optional
+
+      await updatePhoto(
+        photoId,
+        {
+          title: data.title,
+          description: data.description,
+          category: data.category,
+          price: data.price,
+        },
+        file, // 👈 тільки тут передаємо file як 3-й аргумент
+      );
+
+      toast.success('Photo updated successfully!', { icon: '✅' });
+
+      onSuccess?.();
     } catch (err) {
       console.error(err);
-
-      toast.error(
-        mode === 'create' ? 'Error adding photo!' : 'Error updating photo!',
-      );
+      toast.error(mode === 'create' ? 'Upload failed' : 'Update failed');
     } finally {
       setLoading(false);
     }
@@ -128,7 +141,6 @@ const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
           placeholder="Title"
           className={styles.formInput}
         />
-
         {errors.title && (
           <p className={styles.errorText}>{errors.title.message}</p>
         )}
@@ -138,7 +150,6 @@ const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
           placeholder="Description..."
           className={styles.formInput}
         />
-
         {errors.description && (
           <p className={styles.errorText}>{errors.description.message}</p>
         )}
@@ -146,10 +157,10 @@ const PhotoUploadForm = ({ mode, photoId, initialData, onSuccess }: Props) => {
         <input
           {...register('price', { valueAsNumber: true })}
           type="number"
+          step="0.01"
           placeholder="Price"
           className={styles.formInput}
         />
-
         {errors.price && (
           <p className={styles.errorText}>{errors.price.message}</p>
         )}
