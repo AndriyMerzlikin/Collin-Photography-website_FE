@@ -86,12 +86,8 @@ const Footer = () => {
                 <Typography>Impressum</Typography>
               </Link>
               <hr />
-              <Link href={ROUTES.DATENSCHUTZ}>
-                <Typography>Datenschutzerklärung</Typography>
-              </Link>
-              <hr />
-              <Link href={ROUTES.AGB}>
-                <Typography>AGB</Typography>
+              <Link href={ROUTES.PRIVACY}>
+                <Typography>Privacy Policy</Typography>
               </Link>
             </div>
           </div>

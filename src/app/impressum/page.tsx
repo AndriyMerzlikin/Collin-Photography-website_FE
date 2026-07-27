@@ -8,148 +8,53 @@ const Page = () => {
   return (
     <div className={styles.container}>
       <Typography variant="h2" className={styles.title}>
-        Datenschutzerklärung
+        Impressum
       </Typography>
 
       <div className={styles.infoContainer}>
-        <BackLink href={ROUTES.HOME} title="Go Back" />
+        <BackLink href={ROUTES.HOME} title="Go Back"/>
         <Typography variant="h2" className={styles.title2}>
-          Datenschutzerklärung
+          Legal Notice (Impressum)
         </Typography>
-        <Typography variant="h3" className={styles.subTitle}>
-          Inhaltsverzeichnis
+        <Typography variant="h4" className={styles.subTitle}>
+          Information according to § 24 and § 25 Austrian Media Act (MedienG) and § 5 E-Commerce Act (ECG):
         </Typography>
-        <ul className={styles.list}>
-          <li>
-            <a href="#einleitung">
-              <Typography>Einleitung und Überblick</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#anwendungsbereich">
-              <Typography>Anwendungsbereich</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#rechtsgrundlagen">
-              <Typography>Rechtsgrundlagen</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#kontaktdaten">
-              <Typography>Kontaktdaten des Verantwortlichen</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#speicherdauer">
-              <Typography>Speicherdauer</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#rechte">
-              <Typography>Rechte laut Datenschutz-Grundverordnung</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#avv">
-              <Typography>Auftragsverarbeitungsvertrag (AVV)</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#cookies">
-              <Typography>Cookies</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#webhosting">
-              <Typography>Webhosting Einleitung</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#baukastensysteme">
-              <Typography>Website Baukastensysteme Einleitung</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#socialmedia">
-              <Typography>Social Media Einleitung</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#begriffe">
-              <Typography>Erklärung verwendeter Begriffe</Typography>
-            </a>
-          </li>
-          <li>
-            <a href="#schlusswort">
-              <Typography>Schlusswort</Typography>
-            </a>
-          </li>
-        </ul>
-        <section id="einleitung">
-          <Typography variant="h3" className={styles.subTitle}>
-            einleitung
-          </Typography>
+        <Typography variant="h4" className={styles.subTitle}>
+          Platform Owner & Operator:
+        </Typography>
+
+        <section className={styles.sectionBox}>
+          <ul className={styles.list}>
+            <li>
+              <Typography variant="body-large">Collin Rührer</Typography>
+            </li>
+            <li>
+              <Typography variant="body-large">Wolfgang-Schmälzl-Gasse 5/23</Typography>
+            </li>
+            <li>
+              <Typography variant="body-large">1020 Vienna</Typography>
+            </li>
+            <li>
+              <Typography variant="body-large">Austria</Typography>
+            </li>
+          </ul>
         </section>
-        <section id="anwendungsbereich">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
+
+        <section className={styles.sectionBox}>
+          <Typography variant="h4" className={styles.subTitle}>
+            Contact Information:
           </Typography>
+          <Typography variant="body-large">Email:</Typography>
+          <a href="mailto:collin.photo.business@gmail.com" className={styles.link}>
+            <Typography variant="body-large">collin.photo.business@gmail.com</Typography>
+          </a>
         </section>
-        <section id="rechtsgrundlagen">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
+
+        <section className={styles.sectionBox}>
+          <Typography variant="h4" className={styles.subTitle}>
+            Business Object (Unternehmensgegenstand):
           </Typography>
-        </section>
-        <section id="kontaktdaten">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="speicherdauer">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="rechte">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="avv">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="cookies">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="webhosting">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="baukastensysteme">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="socialmedia">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="begriffe">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
-        </section>
-        <section id="schlusswort">
-          <Typography variant="h3" className={styles.subTitle}>
-            1
-          </Typography>
+          <Typography variant="body-large">Photography and Content Creation</Typography>
         </section>
       </div>
     </div>
