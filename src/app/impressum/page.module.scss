@@ -37,20 +37,22 @@
 .subTitle {
   text-transform: uppercase;
   color: $primary-olive;
-  margin-bottom: $paragraph-spacing-l;
+  margin-bottom: $paragraph-spacing-xxl;
+}
+
+.sectionBox {
+  margin-bottom: $paragraph-spacing-xxl;
 }
 
 .list {
-  list-style-type: disc;
-  padding-left: $paragraph-spacing-xxl;
-  margin-bottom: $paragraph-spacing-l;
+  margin-bottom: $paragraph-spacing-s;
 
   li {
-    color: $primary-low;
-    text-decoration: underline;
-
-    &:hover {
-      text-decoration: none;
-    }
+    color: $secondary-black;
   }
+}
+
+.link {
+  color: $primary-low;
+  text-decoration: underline;
 }

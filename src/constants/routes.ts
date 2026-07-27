@@ -8,7 +8,6 @@ export const ROUTES = {
   CONTACTS: '/contacts',
   CART: '/cart',
   IMPRESSUM: '/impressum',
-  DATENSCHUTZ: '/datenschutzerklaerung',
-  AGB: '/agb',
+  PRIVACY: '/privacy',
   ADMIN: '/admin',
 };
